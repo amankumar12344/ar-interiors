@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import FloatingWhatsApp from './components/common/FloatingWhatsApp';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -30,7 +31,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-ivory text-charcoal font-sans">
+    <div className="flex flex-col min-h-screen bg-ivory text-charcoal font-sans relative">
       <ScrollToTop />
       <Navbar />
       <div className="flex-grow">
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
+      <FloatingWhatsApp />
       <Footer />
     </div>
   );

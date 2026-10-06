@@ -4,6 +4,7 @@ import { Menu, X, Phone, MessageSquare, ArrowUpRight, MapPin, Clock, Calendar, S
 import Container from '../common/Container';
 import Button from '../common/Button';
 import { cn } from '../../utils/cn';
+import { CONTACT_INFO } from '../../data/contactInfo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,29 +77,14 @@ export default function Navbar() {
 
   // Determine if this nav link is currently active
   const isLinkActive = (link) => {
-    if (location.pathname === '/') {
-      return activeSection === link.sectionId;
-    }
     if (link.path === '/') {
-      return false;
+      return location.pathname === '/';
     }
     return location.pathname === link.path || location.pathname.startsWith(link.path + '/');
   };
 
-  // Smooth scroll or navigation handler
-  const handleNavLinkClick = (e, link) => {
-    if (location.pathname === '/') {
-      if (link.sectionId) {
-        const el = document.getElementById(link.sectionId);
-        if (el) {
-          e.preventDefault();
-          setActiveSection(link.sectionId);
-          el.scrollIntoView({ behavior: 'smooth' });
-          setMobileMenuOpen(false);
-          return;
-        }
-      }
-    }
+  // Direct page navigation handler
+  const handleNavLinkClick = () => {
     setMobileMenuOpen(false);
   };
 
@@ -125,15 +111,15 @@ export default function Navbar() {
               {/* Right: Direct Contact & WhatsApp */}
               <div className="flex items-center gap-5">
                 <a
-                  href="tel:+919810000000"
+                  href={`tel:${CONTACT_INFO.phoneRaw}`}
                   className="flex items-center gap-1.5 text-ivory/90 hover:text-gold transition-colors font-medium"
                 >
                   <Phone className="w-3 h-3 text-gold" />
-                  <span>Call Studio: +91 9810X XXXXX</span>
+                  <span>Call Studio: {CONTACT_INFO.phoneDisplay}</span>
                 </a>
                 <span className="w-1 h-1 rounded-full bg-white/30"></span>
                 <a
-                  href="https://wa.me/919810000000?text=Hello%20AR%20Interiors,%20I%20would%20like%20to%20consult%20regarding%20my%20property."
+                  href={CONTACT_INFO.getWhatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-gold hover:text-gold-light transition-colors font-medium"
@@ -203,7 +189,7 @@ export default function Navbar() {
               {/* Right Side Action Button */}
               <div className="flex items-center gap-3 sm:gap-4">
                 <a
-                  href="tel:+919810000000"
+                  href={`tel:${CONTACT_INFO.phoneRaw}`}
                   className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-sm border border-white/15 text-ivory/90 hover:text-gold hover:border-gold/40 text-xs font-medium transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-gold" />
@@ -278,14 +264,14 @@ export default function Navbar() {
           {/* Direct Call & WhatsApp in Mobile Drawer */}
           <div className="grid grid-cols-2 gap-2 mb-6 pb-6 border-b border-white/10">
             <a
-              href="tel:+919810000000"
+              href={`tel:${CONTACT_INFO.phoneRaw}`}
               className="flex items-center justify-center gap-2 py-2.5 px-3 bg-white/5 border border-white/10 rounded-sm text-xs font-medium text-ivory hover:text-gold"
             >
               <Phone className="w-3.5 h-3.5 text-gold" />
               <span>Call Lead</span>
             </a>
             <a
-              href="https://wa.me/919810000000"
+              href={CONTACT_INFO.getWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-2.5 px-3 bg-white/5 border border-white/10 rounded-sm text-xs font-medium text-gold hover:text-gold-light"

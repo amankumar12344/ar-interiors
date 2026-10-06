@@ -69,7 +69,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-4">
                   <Phone className="w-5 h-5 text-gold shrink-0" />
                   <div>
-                    <span className="block text-charcoal font-medium">+91 98765 43210</span>
+                    <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="block text-charcoal font-medium hover:text-gold transition-colors">{CONTACT_INFO.phoneDisplay}</a>
                     <span className="text-xs text-taupe">Direct Architectural Line</span>
                   </div>
                 </div>
@@ -93,14 +93,55 @@ export default function ContactPage() {
 
               <div className="mt-8 pt-6 border-t border-taupe/20">
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20AR%20Interiors,%20I%20would%20like%20to%20inquire%20about%20a%20new%20interior/architecture%20project"
+                  href={CONTACT_INFO.getWhatsappUrl()}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 w-full py-3 bg-white hover:bg-cream border border-taupe/30 text-charcoal text-xs tracking-architectural uppercase font-medium transition-colors"
+                  className="inline-flex items-center justify-center gap-2.5 w-full py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-sm text-xs tracking-architectural uppercase font-semibold transition-all rounded-sm"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-700" />
+                  <MessageCircle className="w-4 h-4 fill-current" />
                   <span>Direct WhatsApp Consultation</span>
                 </a>
+
+                {/* Social Profiles */}
+                <div className="mt-6 pt-5 border-t border-taupe/20">
+                  <span className="block text-[11px] uppercase tracking-architectural text-taupe font-semibold mb-3">
+                    Connect On Social Media
+                  </span>
+                  <div className="flex items-center gap-2.5">
+                    <a
+                      href={CONTACT_INFO.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-cream border border-taupe/30 text-charcoal text-xs rounded-sm transition-colors"
+                      title="Follow on Instagram"
+                    >
+                      <Instagram className="w-3.5 h-3.5 text-gold" />
+                      <span>Instagram</span>
+                    </a>
+                    <a
+                      href={CONTACT_INFO.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-cream border border-taupe/30 text-charcoal text-xs rounded-sm transition-colors"
+                      title="Connect on LinkedIn"
+                    >
+                      <Linkedin className="w-3.5 h-3.5 text-gold" />
+                      <span>LinkedIn</span>
+                    </a>
+                    <a
+                      href={CONTACT_INFO.socials.pinterest}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-cream border border-taupe/30 text-charcoal text-xs rounded-sm transition-colors"
+                      title="Explore Pinterest"
+                    >
+                      <svg className="w-3.5 h-3.5 fill-current text-gold" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.546.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                      </svg>
+                      <span>Pinterest</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 

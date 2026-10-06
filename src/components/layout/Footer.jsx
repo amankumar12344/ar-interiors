@@ -1,7 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
-import { Instagram, Facebook, Linkedin, ArrowUpRight, MapPin, Mail, Phone } from 'lucide-react';
+import { Instagram, Linkedin, MapPin, Mail, Phone } from 'lucide-react';
+import { CONTACT_INFO } from '../../data/contactInfo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,6 @@ export default function Footer() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <Link to="/" className="inline-flex items-center gap-4 group mb-5">
-                {/* 3D Architectural Logo Emblem */}
                 <img
                   src="/logo.jpg"
                   alt="AR Interiors Logo"
@@ -30,7 +30,6 @@ export default function Footer() {
                 />
                 
                 <div className="flex flex-col">
-                  {/* Metallic Champagne Gold AR INTERIORS - matching top navbar */}
                   <span className="font-serif text-2xl sm:text-3xl tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all">
                     AR INTERIORS
                   </span>
@@ -51,42 +50,57 @@ export default function Footer() {
             </div>
 
             {/* Social Links with Warm Gold Accents */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3.5 flex-wrap">
+              {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href={CONTACT_INFO.socials.instagram}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-[#BF9C60]/30 bg-[#1A1815] flex items-center justify-center text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#12100E] hover:border-[#BF9C60] transition-all shadow-sm"
-                aria-label="Instagram"
+                aria-label="Instagram - AR Interiors Noida"
+                title="Follow on Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
+
+              {/* LinkedIn */}
               <a
-                href="https://facebook.com"
+                href={CONTACT_INFO.socials.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-[#BF9C60]/30 bg-[#1A1815] flex items-center justify-center text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#12100E] hover:border-[#BF9C60] transition-all shadow-sm"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-[#BF9C60]/30 bg-[#1A1815] flex items-center justify-center text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#12100E] hover:border-[#BF9C60] transition-all shadow-sm"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn - AR Interiors Noida"
+                title="Connect on LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
+
+              {/* Pinterest */}
               <a
-                href="https://pinterest.com"
+                href={CONTACT_INFO.socials.pinterest}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-[#BF9C60]/30 bg-[#1A1815] flex items-center justify-center text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#12100E] hover:border-[#BF9C60] transition-all shadow-sm"
-                aria-label="Pinterest"
+                aria-label="Pinterest - AR Interiors Noida"
+                title="Explore Pinterest"
               >
-                <span className="text-xs font-semibold">P</span>
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.546.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                </svg>
+              </a>
+
+              {/* Direct WhatsApp */}
+              <a
+                href={CONTACT_INFO.getWhatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-[#25D366]/40 bg-[#1A1815] flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all shadow-sm"
+                aria-label="Chat on WhatsApp"
+                title="Chat on WhatsApp"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.772.84 2.791.84 3.185 0 5.768-2.587 5.768-5.766.001-3.18-2.582-5.766-5.768-5.766zm9.969 5.766c0 5.519-4.481 10-10 10-1.748 0-3.385-.45-4.819-1.242l-5.181 1.355 1.378-5.034c-.879-1.488-1.378-3.224-1.378-5.079 0-5.519 4.481-10 10-10s10 4.481 10 10zm-5.467 2.593c-.092-.153-.339-.244-.707-.428-.368-.184-2.179-1.076-2.517-1.199-.338-.123-.584-.184-.83.184-.246.368-.953 1.199-1.168 1.445-.215.246-.43.277-.798.093-.368-.184-1.555-.573-2.962-1.828-1.096-.977-1.836-2.184-2.051-2.553-.215-.368-.023-.567.161-.75.166-.165.368-.43.552-.645.184-.215.246-.368.369-.614.123-.246.061-.46-.031-.645-.092-.184-.83-2.001-1.137-2.742-.299-.721-.603-.623-.83-.635l-.707-.012c-.246 0-.645.092-.983.46-.338.368-1.29 1.26-1.29 3.073 0 1.813 1.321 3.565 1.505 3.811.184.246 2.599 3.968 6.297 5.566.88.381 1.567.608 2.102.778.884.281 1.689.241 2.324.146.709-.106 2.179-.89 2.486-1.749.307-.86.307-1.597.215-.75-.092-.153-.338-.244-.706-.428z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -196,16 +210,26 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#DFBA73] mt-1 shrink-0" />
                 <p className="leading-relaxed">
-                  Sector 128 / Noida Expressway, Noida, Uttar Pradesh 201304, India
+                  {CONTACT_INFO.address}
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#DFBA73] shrink-0" />
-                <p className="text-[#F5F2EB] font-medium">+91 9810X XXXXX / +91 98765 43210</p>
+                <a 
+                  href={`tel:${CONTACT_INFO.phoneRaw}`}
+                  className="text-[#F5F2EB] font-medium hover:text-[#DFBA73] transition-colors"
+                >
+                  {CONTACT_INFO.phoneDisplay}
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#DFBA73] shrink-0" />
-                <p>studio@arinteriors.in</p>
+                <a 
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="hover:text-[#DFBA73] transition-colors"
+                >
+                  {CONTACT_INFO.email}
+                </a>
               </div>
               <div className="pt-2">
                 <span className="inline-block px-3 py-1.5 bg-[#BF9C60]/15 border border-[#BF9C60]/30 rounded-sm text-xs text-[#DFBA73] font-medium">

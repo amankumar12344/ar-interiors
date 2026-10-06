@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
 import Button from '../common/Button';
+import { CONTACT_INFO } from '../../data/contactInfo';
 import { MessageCircle, PhoneCall, Sparkles, MapPin } from 'lucide-react';
 
 export default function ConsultationCTA() {
@@ -35,7 +36,7 @@ export default function ConsultationCTA() {
                 Start Your Project
               </Button>
               <Button
-                href="https://wa.me/919810XXXXXX?text=Hello%20AR%20Interiors,%20I%20would%20like%20to%20schedule%20a%20free%20design%20consultation%20for%20my%20property%20in%20Noida"
+                href={CONTACT_INFO.getWhatsappUrl()}
                 variant="secondary"
                 size="lg"
                 className="gap-2 !text-white !border-white/30 hover:!bg-white/15"
