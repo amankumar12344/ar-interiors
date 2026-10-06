@@ -4,7 +4,8 @@ import Container from '../components/common/Container';
 import SectionHeading from '../components/common/SectionHeading';
 import Button from '../components/common/Button';
 import { contactService } from '../services/contactService';
-import { MapPin, Phone, Mail, Clock, CheckCircle2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, CheckCircle2, MessageCircle, Instagram, Linkedin } from 'lucide-react';
+import { CONTACT_INFO } from '../data/contactInfo';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
