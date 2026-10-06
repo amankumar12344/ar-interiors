@@ -24,6 +24,23 @@ export default function ContactPage() {
   const [serverMessage, setServerMessage] = useState('');
   const [submittedData, setSubmittedData] = useState(null);
   const [selectedTimeline, setSelectedTimeline] = useState('Immediate');
+  const [targetDate, setTargetDate] = useState('');
+
+  const todayDateString = new Date().toISOString().split('T')[0];
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    try {
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+      }
+      return dateStr;
+    } catch {
+      return dateStr;
+    }
+  };
 
   const {
     register,
@@ -78,7 +95,8 @@ export default function ContactPage() {
     try {
       const payload = {
         ...data,
-        timeline: selectedTimeline
+        timeline: selectedTimeline,
+        targetDate: targetDate || null
       };
       const response = await contactService.submitInquiry(payload);
       setSubmitted(true);
@@ -86,6 +104,7 @@ export default function ContactPage() {
       setServerMessage(response.message);
       reset();
       setSelectedTimeline('Immediate');
+      setTargetDate('');
     } catch (err) {
       console.error(err);
     }
@@ -228,17 +247,26 @@ export default function ContactPage() {
                 </p>
 
                 {submittedData && (
-                  <div className="mt-6 p-4 bg-white/80 border border-taupe/20 rounded-sm max-w-md mx-auto text-left text-xs space-y-1.5 text-charcoal/80">
-                    <div className="flex justify-between border-b border-taupe/15 pb-1">
+                  <div className="mt-6 p-4 bg-white/80 border border-taupe/20 rounded-sm max-w-md mx-auto text-left text-xs space-y-2 text-charcoal/80">
+                    <div className="flex justify-between border-b border-taupe/15 pb-1.5">
                       <span className="text-taupe">Requirement:</span>
                       <strong className="font-semibold">{submittedData.projectType}</strong>
                     </div>
-                    <div className="flex justify-between border-b border-taupe/15 pb-1">
+                    <div className="flex justify-between border-b border-taupe/15 pb-1.5">
                       <span className="text-taupe">Start Timeline:</span>
                       <span className="font-semibold text-gold-dark bg-gold/10 px-2 py-0.5 rounded-sm">
                         {submittedData.timeline}
                       </span>
                     </div>
+                    {submittedData.targetDate && (
+                      <div className="flex justify-between border-b border-taupe/15 pb-1.5">
+                        <span className="text-taupe">Expected Date:</span>
+                        <span className="font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-sm flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-emerald-600" />
+                          {formatDate(submittedData.targetDate)}
+                        </span>
+                      </div>
+                    )}
                     <div className="flex justify-between">
                       <span className="text-taupe">Location:</span>
                       <strong className="font-semibold">{submittedData.location}</strong>
@@ -250,7 +278,7 @@ export default function ContactPage() {
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <a
                     href={CONTACT_INFO.getWhatsappUrl(
-                      `Hello AR Interiors, I just submitted a website inquiry for my ${submittedData?.projectType || 'interior'} project at ${submittedData?.location || 'Noida'}. Our required timeline is: ${submittedData?.timeline || 'Immediate'}. Please connect.`
+                      `Hello AR Interiors, I just submitted an inquiry for my ${submittedData?.projectType || 'interior'} project at ${submittedData?.location || 'Noida'}. Timeline: ${submittedData?.timeline || 'Immediate'}${submittedData?.targetDate ? ` | Expected Date: ${formatDate(submittedData.targetDate)}` : ''}. Please connect.`
                     )}
                     target="_blank"
                     rel="noreferrer"
@@ -408,17 +436,18 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* NEW FEATURE: Execution / Possession Timeline Selector */}
+                {/* Timeline Selector with Quick Pills + Specific Calendar Date Picker */}
                 <div className="pt-2">
                   <div className="flex items-center justify-between mb-2">
                     <label className="block text-xs uppercase tracking-wider text-charcoal font-medium">
                       When would you like to start? (Timeline) *
                     </label>
                     <span className="text-[11px] text-taupe font-sans hidden sm:inline">
-                      Select how soon you require execution
+                      Select timeframe or choose exact date
                     </span>
                   </div>
 
+                  {/* Quick Timeline Pills */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
                     {timelineOptions.map((opt) => {
                       const isSelected = selectedTimeline === opt.label;
@@ -471,6 +500,44 @@ export default function ContactPage() {
                     })}
                   </div>
                   <input type="hidden" {...register('timeline')} value={selectedTimeline} />
+
+                  {/* CALENDAR FEATURE: Exact Date Selection */}
+                  <div className="mt-3.5 p-3.5 bg-gradient-to-r from-ivory/70 to-cream/50 border border-taupe/25 rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5 text-xs text-charcoal">
+                      <div className="w-7 h-7 rounded-full bg-[#BF9C60]/15 flex items-center justify-center shrink-0">
+                        <Calendar className="w-3.5 h-3.5 text-[#BF9C60]" />
+                      </div>
+                      <div>
+                        <span className="font-medium block leading-tight">
+                          Select Specific Possession or Site Visit Date (Optional)
+                        </span>
+                        <span className="text-[11px] text-taupe font-light">
+                          Pick a date from calendar for planned consultation
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 self-start sm:self-auto">
+                      <input
+                        type="date"
+                        min={todayDateString}
+                        value={targetDate}
+                        onChange={(e) => setTargetDate(e.target.value)}
+                        aria-label="Expected project or possession date"
+                        className="px-3 py-2 bg-white border border-taupe/35 text-charcoal text-xs rounded-sm focus:outline-none focus:border-[#BF9C60] shadow-2xs font-sans cursor-pointer transition-colors"
+                      />
+                      {targetDate && (
+                        <button
+                          type="button"
+                          onClick={() => setTargetDate('')}
+                          className="text-[11px] text-taupe hover:text-red-600 transition-colors px-1 py-1"
+                          title="Clear date"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Message */}
