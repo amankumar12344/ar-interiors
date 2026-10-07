@@ -11,6 +11,8 @@
     instagram: 'https://www.instagram.com/arinteriornoida/',
     linkedin: 'https://www.linkedin.com/company/arinteriorsnoida',
     pinterest: 'https://www.pinterest.com/arinteriornoida/',
+    x: 'https://x.com/arinteriornoida',
+    twitter: 'https://x.com/arinteriornoida',
   },
 
   getWhatsappUrl: (customMessage) => {
