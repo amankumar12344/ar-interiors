@@ -193,7 +193,7 @@ export default function Navbar() {
                   className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-sm border border-white/15 text-ivory/90 hover:text-gold hover:border-gold/40 text-xs font-medium transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-gold" />
-                  <span>+91 9810X</span>
+                  <span>{CONTACT_INFO.phoneDisplay}</span>
                 </a>
 
                 <Button
