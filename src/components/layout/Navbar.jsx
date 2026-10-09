@@ -121,7 +121,7 @@ export default function Navbar() {
               </Link>
 
               {/* Desktop Navigation Links with Active Indicator */}
-              <nav className="hidden xl:flex items-center gap-5 2xl:gap-8 shrink-0">
+              <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-8 shrink-0">
                 {navLinks.map((link) => {
                   const active = isLinkActive(link);
 
@@ -162,7 +162,7 @@ export default function Navbar() {
                 {/* Mobile Menu Toggle */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="xl:hidden p-2 text-ivory hover:text-gold transition-colors focus:outline-none cursor-pointer shrink-0"
+                  className="lg:hidden p-2 text-ivory hover:text-gold transition-colors focus:outline-none cursor-pointer shrink-0"
                   aria-label="Toggle navigation menu"
                 >
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -176,7 +176,7 @@ export default function Navbar() {
       {/* Mobile Drawer Navigation */}
       <div
         className={cn(
-          'fixed inset-0 bg-charcoal/80 backdrop-blur-md z-40 transition-opacity duration-300 xl:hidden',
+          'fixed inset-0 bg-charcoal/80 backdrop-blur-md z-40 transition-opacity duration-300 lg:hidden',
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         )}
         onClick={() => setMobileMenuOpen(false)}
@@ -184,7 +184,7 @@ export default function Navbar() {
 
       <aside
         className={cn(
-          'fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-charcoal text-ivory z-50 p-7 flex flex-col justify-between transition-transform duration-500 ease-out border-l border-white/15 xl:hidden overflow-y-auto',
+          'fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-charcoal text-ivory z-50 p-7 flex flex-col justify-between transition-transform duration-500 ease-out border-l border-white/15 lg:hidden overflow-y-auto',
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
