@@ -92,24 +92,24 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         {/* Tier 1: Top Utility Bar (D'LIFE Inspired) */}
-        <div className="bg-[#151311] text-ivory/80 text-[11px] font-sans border-b border-white/10 hidden md:block py-2">
+        <div className="bg-[#151311] text-ivory/80 text-[11px] font-sans border-b border-white/10 hidden lg:block py-2">
           <Container fluid>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-4">
               {/* Left: Location & Studio Status */}
-              <div className="flex items-center gap-5 text-ivory/70">
+              <div className="flex items-center gap-5 text-ivory/70 shrink-0 whitespace-nowrap">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-gold" />
+                  <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
                   <span>Serving Noida (Sec 150, 128, 62, 50), Greater Noida & Delhi NCR</span>
                 </span>
-                <span className="w-1 h-1 rounded-full bg-white/30"></span>
+                <span className="w-1 h-1 rounded-full bg-white/30 shrink-0"></span>
                 <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-gold" />
+                  <Clock className="w-3.5 h-3.5 text-gold shrink-0" />
                   <span>Mon - Sat: 10:00 AM - 7:30 PM</span>
                 </span>
               </div>
 
               {/* Right: Direct Contact & WhatsApp */}
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-5 shrink-0 whitespace-nowrap">
                 <a
                   href={`tel:${CONTACT_INFO.phoneRaw}`}
                   className="flex items-center gap-1.5 text-ivory/90 hover:text-gold transition-colors font-medium"
@@ -143,25 +143,25 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
               
               {/* Brand Logo Box with User's 3D Luxury Architectural Logo */}
-              <Link to="/" className="group flex items-center gap-3.5 text-left">
+              <Link to="/" className="group flex items-center gap-3 sm:gap-3.5 text-left shrink-0 whitespace-nowrap">
                 <img
                   src="/logo.jpg"
                   alt="AR Interiors Logo"
-                  className="w-11 h-11 sm:w-12 sm:h-12 object-cover rounded-sm border border-[#BF9C60]/60 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300"
+                  className="w-10 h-10 sm:w-11 sm:h-11 xl:w-12 xl:h-12 object-cover rounded-sm border border-[#BF9C60]/60 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="flex flex-col">
-                  <span className="font-serif text-2xl sm:text-[26px] tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all">
+                <div className="flex flex-col shrink-0">
+                  <span className="font-serif text-xl sm:text-2xl xl:text-[25px] tracking-[0.16em] sm:tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all whitespace-nowrap">
                     AR INTERIORS
                   </span>
-                  <span className="text-[9px] sm:text-[10px] tracking-[0.3em] text-ivory/75 uppercase font-sans mt-1 flex items-center gap-1.5 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block"></span>
+                  <span className="text-[8px] sm:text-[9px] xl:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-ivory/75 uppercase font-sans mt-1 flex items-center gap-1.5 font-medium whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block shrink-0"></span>
                     <span>ARCHITECT & DESIGNER STUDIO</span>
                   </span>
                 </div>
               </Link>
 
               {/* Desktop Navigation Links with Active Indicator */}
-              <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
+              <nav className="hidden xl:flex items-center gap-5 2xl:gap-8 shrink-0">
                 {navLinks.map((link) => {
                   const active = isLinkActive(link);
 
@@ -171,7 +171,7 @@ export default function Navbar() {
                       to={link.path}
                       onClick={(e) => handleNavLinkClick(e, link)}
                       className={cn(
-                        'text-xs tracking-architectural uppercase font-medium transition-all duration-200 relative py-1.5 cursor-pointer',
+                        'text-xs tracking-architectural uppercase font-medium transition-all duration-200 relative py-1.5 cursor-pointer whitespace-nowrap shrink-0',
                         active
                           ? 'text-gold-light font-semibold'
                           : 'text-ivory/80 hover:text-gold-light'
@@ -187,12 +187,12 @@ export default function Navbar() {
               </nav>
 
               {/* Right Side Action Button */}
-              <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                 <a
                   href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-sm border border-white/15 text-ivory/90 hover:text-gold hover:border-gold/40 text-xs font-medium transition-colors"
+                  className="hidden 2xl:flex items-center gap-2 px-3 py-2 rounded-sm border border-white/15 text-ivory/90 hover:text-gold hover:border-gold/40 text-xs font-medium transition-colors shrink-0 whitespace-nowrap"
                 >
-                  <Phone className="w-3.5 h-3.5 text-gold" />
+                  <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
                   <span>{CONTACT_INFO.phoneDisplay}</span>
                 </a>
 
@@ -201,7 +201,7 @@ export default function Navbar() {
                   variant="gold"
                   size="sm"
                   icon
-                  className="hidden sm:inline-flex !bg-gradient-to-r !from-gold !via-gold-light !to-gold-dark !text-charcoal hover:!brightness-110 font-semibold !shadow-md !border-gold-light/40 uppercase tracking-wider text-xs"
+                  className="hidden sm:inline-flex !bg-gradient-to-r !from-gold !via-gold-light !to-gold-dark !text-charcoal hover:!brightness-110 font-semibold !shadow-md !border-gold-light/40 uppercase tracking-wider text-xs shrink-0 whitespace-nowrap"
                 >
                   Book Free Consultation
                 </Button>
@@ -209,7 +209,7 @@ export default function Navbar() {
                 {/* Mobile Menu Toggle */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="lg:hidden p-2 text-ivory hover:text-gold transition-colors focus:outline-none cursor-pointer"
+                  className="xl:hidden p-2 text-ivory hover:text-gold transition-colors focus:outline-none cursor-pointer shrink-0"
                   aria-label="Toggle navigation menu"
                 >
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -223,7 +223,7 @@ export default function Navbar() {
       {/* Mobile Drawer Navigation */}
       <div
         className={cn(
-          'fixed inset-0 bg-charcoal/80 backdrop-blur-md z-40 transition-opacity duration-300 lg:hidden',
+          'fixed inset-0 bg-charcoal/80 backdrop-blur-md z-40 transition-opacity duration-300 xl:hidden',
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         )}
         onClick={() => setMobileMenuOpen(false)}
@@ -231,7 +231,7 @@ export default function Navbar() {
 
       <aside
         className={cn(
-          'fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-charcoal text-ivory z-50 p-7 flex flex-col justify-between transition-transform duration-500 ease-out border-l border-white/15 lg:hidden overflow-y-auto',
+          'fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-charcoal text-ivory z-50 p-7 flex flex-col justify-between transition-transform duration-500 ease-out border-l border-white/15 xl:hidden overflow-y-auto',
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
