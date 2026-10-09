@@ -6,6 +6,54 @@ import Button from '../common/Button';
 
 export const GALLERY_SERVICES = [
   {
+    id: "contemporary-living-pavilion",
+    category: "Living Rooms",
+    categoryKey: "living",
+    title: "Minimalist Linear Living & Media Suite",
+    subtitle: "Seamless timber ceiling coves, marble plinth & daylight geometry",
+    image: "/gallery/contemporary-living-pavilion.jpg",
+    description: "An expansive, open-format living pavilion designed around uninterrupted sightlines and calibrated natural daylight. Featuring a floating marble media bench, dual architectural art alcoves, concealed HVAC ceiling detailing, and customized low-slung lounge seating.",
+    features: [
+      "Floating Italian Marble Media Plinth with Concealed Wire Inlets",
+      "Recessed Warm Walnut Ceiling Perimeter with Flush LED Tracks",
+      "Minimalist Low-Profile L-Sectional in Stain-Resistant Linen Fabric",
+      "Floor-to-Ceiling Thermal Acoustic Fenestration"
+    ],
+    materials: ["Botticino Marble", "Natural Teak Trims", "Oatmeal Linen", "Matte Anthracite Panels"]
+  },
+  {
+    id: "fluted-timber-master-suite",
+    category: "Bedrooms",
+    categoryKey: "bedroom",
+    title: "Biophilic Fluted Timber Master Suite",
+    subtitle: "Acoustic vertical louvers, Japanese cherry blossom art & forest vista",
+    image: "/gallery/fluted-timber-master-suite.jpg",
+    description: "A sanctuary of profound calm and natural tactility. The focal wall showcases full-height vertical timber acoustic louvers integrated with hand-crafted golden branch botanical artwork, ambient orb pendants, and a platform bed facing sweeping panoramic green views.",
+    features: [
+      "Floor-to-Ceiling Solid Wood Fluted Acoustic Wall Screen",
+      "Sculptural Hand-Applied Gilded Botanical Branch Installation",
+      "Twin Low-Voltage Brass & Frosted Orb Ambient Reading Pendants",
+      "Full-Height Triple-Glazed Acoustic Panoramic Nature Wall"
+    ],
+    materials: ["Seasoned Ash Wood", "Champagne Gold Metal", "Raw Silk Bedding", "Brushed Bronze Profiles"]
+  },
+  {
+    id: "curated-art-library-lounge",
+    category: "Living & Dining",
+    categoryKey: "living",
+    title: "Curated Art & Library Salon",
+    subtitle: "Full-height custom walnut shelving, statement abstract art & velvet seating",
+    image: "/gallery/curated-art-library-lounge.jpg",
+    description: "An intellectual, artistic salon marrying classical library millwork with vibrant contemporary art. Anchored by a bespoke multi-tier solid walnut bookcase, mid-century lounge chairs, an organic low-slung coffee table, and tailored velvet sofa seating.",
+    features: [
+      "Bespoke Full-Height Solid Walnut Millwork & Display Cabinetry",
+      "Statement Large-Format Abstract Canvas Feature Wall",
+      "Mid-Century Ergonomic Accent Armchairs in Grain Leather & Linen",
+      "Low-Profile Dual-Tier Organic Teak Wood Coffee Table"
+    ],
+    materials: ["Solid American Walnut", "Deep Petrol Blue Velvet", "Terracotta Accents", "Hand-Tufted Wool Rug"]
+  },
+  {
     id: "architecture",
     category: "Architecture",
     categoryKey: "architecture",

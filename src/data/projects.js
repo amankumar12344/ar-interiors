@@ -1,5 +1,36 @@
 export const projectsData = [
   {
+    id: "the-serene-atelier-noida",
+    slug: "the-serene-atelier-noida",
+    title: "The Serene Atelier Residence",
+    category: "Residential Interior",
+    categorySlug: "residential-interiors",
+    location: "Sector 2 / Sector 15A, Noida",
+    year: "2024",
+    area: "4,500 sq.ft",
+    completionTime: "6 Months",
+    coverImage: "/gallery/fluted-timber-master-suite.jpg",
+    gallery: [
+      "/gallery/fluted-timber-master-suite.jpg",
+      "/gallery/contemporary-living-pavilion.jpg",
+      "/gallery/curated-art-library-lounge.jpg"
+    ],
+    beforeImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+    afterImage: "/gallery/fluted-timber-master-suite.jpg",
+    subtitle: "A masterclass in biophilic timber acoustic walls, expansive daylight living, and bespoke library millwork",
+    overview: "Crafted for connoisseurs of architectural harmony, this residence combines vertical timber acoustic fluting, full-height art curation, and tailored Italian marble millwork throughout the living and master suites.",
+    clientBrief: "Design an oasis of tranquility that balances private restorative suites with open-format entertaining pavilions.",
+    materials: [
+      "Natural Seasoned Ash & Walnut Timber",
+      "Botticino Fiorito Marble",
+      "Deep Velvet & Organic Linen",
+      "Brushed Champagne Gold Hardware"
+    ],
+    isFeatured: true,
+    gridSpan: "col-span-12 lg:col-span-8",
+    aspectRatio: "aspect-[16/10]"
+  },
+  {
     id: "residence-01-knightsbridge",
     slug: "residence-01-knightsbridge",
     title: "The Solarium Penthouse",
