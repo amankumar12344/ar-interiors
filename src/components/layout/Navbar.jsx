@@ -149,15 +149,25 @@ export default function Navbar() {
               {/* Right Side Action Button */}
               <div className="flex items-center gap-3 sm:gap-4 shrink-0">
 
-                <Button
+                <Link
                   to="/contact"
-                  variant="gold"
-                  size="sm"
-                  icon
-                  className="hidden sm:inline-flex !bg-gradient-to-r !from-gold !via-gold-light !to-gold-dark !text-charcoal hover:!brightness-110 font-semibold !shadow-md !border-gold-light/40 uppercase tracking-wider text-xs shrink-0 whitespace-nowrap"
+                  className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 lg:px-5 lg:py-2.5 rounded-sm bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#BF9C60] text-charcoal font-sans font-bold text-xs lg:text-[12.5px] tracking-wider uppercase shadow-[0_0_20px_rgba(212,175,55,0.45)] hover:shadow-[0_0_28px_rgba(212,175,55,0.7)] hover:brightness-105 active:scale-[0.98] transition-all duration-300 border border-[#F4E3BA]/70 shrink-0 whitespace-nowrap group relative overflow-hidden"
                 >
-                  Book Free Consultation
-                </Button>
+                  {/* Blinking Live Indicator Dot */}
+                  <span className="relative flex h-2.5 w-2.5 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-charcoal opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-charcoal"></span>
+                  </span>
+
+                  <span className="relative z-10 font-bold tracking-wider">
+                    BOOK FREE CONSULTATION VISIT
+                  </span>
+
+                  {/* Blinking / Animated Hand Pointer Icon */}
+                  <span className="text-sm lg:text-base inline-block transform group-hover:translate-x-1 transition-transform animate-pulse">
+                    👉
+                  </span>
+                </Link>
 
                 {/* Mobile Menu Toggle */}
                 <button
@@ -260,14 +270,17 @@ export default function Navbar() {
 
         {/* Mobile Drawer Bottom */}
         <div className="pt-6 border-t border-white/10 space-y-4">
-          <Button
+          <Link
             to="/contact"
-            variant="gold"
-            size="md"
-            className="w-full !text-charcoal font-semibold uppercase tracking-wider"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-sm bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#BF9C60] text-charcoal font-sans font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-105 transition-all text-center"
           >
-            Book Free Consultation
-          </Button>
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-charcoal opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-charcoal"></span>
+            </span>
+            <span>BOOK FREE CONSULTATION VISIT</span>
+            <span className="text-sm animate-pulse">👉</span>
+          </Link>
           <div className="text-center text-xs text-ivory/50 space-y-1">
             <p className="flex items-center justify-center gap-1">
               <MapPin className="w-3 h-3 text-gold" />
