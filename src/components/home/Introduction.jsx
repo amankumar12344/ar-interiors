@@ -90,8 +90,6 @@ export default function Introduction() {
                   Your browser does not support the video tag.
                 </video>
 
-                {/* Subtle Luxury Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1D1A]/70 via-transparent to-black/20 pointer-events-none" />
 
                 {/* Audio Mute/Unmute Toggle Button */}
                 <button
@@ -113,38 +111,8 @@ export default function Introduction() {
                   )}
                 </button>
 
-                {/* Bottom Overlay Label */}
-                <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white pointer-events-none z-10">
-                  <div>
-                    <span className="text-[11px] tracking-widest text-[#D6BA85] uppercase block font-medium">FEATURED WALKTHROUGH</span>
-                    <h4 className="text-lg font-serif font-normal text-white">The Solarium Residence, Noida Sec 128</h4>
-                  </div>
-                  <span className="text-xs font-mono text-[#D6BA85] px-2.5 py-1 bg-black/50 backdrop-blur-md rounded-sm border border-white/20">
-                    HD VIDEO
-                  </span>
-                </div>
               </motion.div>
 
-              {/* Overlapping Detail Photo & Experience Stamp */}
-              <motion.div
-                initial={{ opacity: 0, y: 30, x: 20 }}
-                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="hidden sm:flex items-center gap-4 absolute -bottom-8 -left-8 bg-[#1F1D1A] text-white p-4 sm:p-5 rounded-sm shadow-modal border border-[#BF9C60]/40 max-w-xs"
-              >
-                <div className="w-12 h-12 rounded-full bg-[#BF9C60]/20 border border-[#BF9C60] flex items-center justify-center shrink-0 text-[#D6BA85]">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-xs tracking-widest uppercase text-[#D6BA85] font-medium block">
-                    100% BESPOKE
-                  </span>
-                  <p className="text-xs text-white/80 font-light mt-0.5 leading-snug">
-                    Architectural floorplans, curated Italian marbles & precision joinery.
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </div>
         </div>
