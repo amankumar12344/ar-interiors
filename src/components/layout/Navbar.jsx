@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Phone, MessageSquare, ArrowUpRight, MapPin, Clock, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, ArrowUpRight, MapPin, Calendar, Sparkles } from 'lucide-react';
 import Container from '../common/Container';
 import Button from '../common/Button';
 import { cn } from '../../utils/cn';
@@ -91,46 +91,6 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        {/* Tier 1: Top Utility Bar (D'LIFE Inspired) */}
-        <div className="bg-[#151311] text-ivory/80 text-[11px] font-sans border-b border-white/10 hidden lg:block py-2">
-          <Container fluid>
-            <div className="flex items-center justify-between gap-4">
-              {/* Left: Location & Studio Status */}
-              <div className="flex items-center gap-5 text-ivory/70 shrink-0 whitespace-nowrap">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
-                  <span>Serving Noida (Sec 150, 128, 62, 50), Greater Noida & Delhi NCR</span>
-                </span>
-                <span className="w-1 h-1 rounded-full bg-white/30 shrink-0"></span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-gold shrink-0" />
-                  <span>Mon - Sat: 10:00 AM - 7:30 PM</span>
-                </span>
-              </div>
-
-              {/* Right: Direct Contact & WhatsApp */}
-              <div className="flex items-center gap-5 shrink-0 whitespace-nowrap">
-                <a
-                  href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="flex items-center gap-1.5 text-ivory/90 hover:text-gold transition-colors font-medium"
-                >
-                  <Phone className="w-3 h-3 text-gold" />
-                  <span>Call Studio: {CONTACT_INFO.phoneDisplay}</span>
-                </a>
-                <span className="w-1 h-1 rounded-full bg-white/30"></span>
-                <a
-                  href={CONTACT_INFO.getWhatsappUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-gold hover:text-gold-light transition-colors font-medium"
-                >
-                  <MessageSquare className="w-3 h-3" />
-                  <span>WhatsApp Chat</span>
-                </a>
-              </div>
-            </div>
-          </Container>
-        </div>
 
         {/* Tier 2: Main High-Contrast Navigation Bar */}
         <div
@@ -188,13 +148,6 @@ export default function Navbar() {
 
               {/* Right Side Action Button */}
               <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-                <a
-                  href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="hidden 2xl:flex items-center gap-2 px-3 py-2 rounded-sm border border-white/15 text-ivory/90 hover:text-gold hover:border-gold/40 text-xs font-medium transition-colors shrink-0 whitespace-nowrap"
-                >
-                  <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
-                  <span>{CONTACT_INFO.phoneDisplay}</span>
-                </a>
 
                 <Button
                   to="/contact"
