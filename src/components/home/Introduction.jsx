@@ -75,7 +75,7 @@ export default function Introduction() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-sm overflow-hidden shadow-elevated border border-[#DDD3C3] aspect-[16/10] bg-charcoal"
+                className="relative rounded-sm overflow-hidden shadow-elevated border border-[#DDD3C3] aspect-video bg-black"
               >
                 <video
                   ref={videoRef}
@@ -84,7 +84,7 @@ export default function Introduction() {
                   muted
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-cover brightness-[0.98] contrast-[1.02]"
+                  className="w-full h-full object-contain brightness-[0.98] contrast-[1.02]"
                 >
                   <source src="/showcase-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
