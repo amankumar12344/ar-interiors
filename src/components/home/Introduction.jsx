@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
-import { Award, Compass, Sparkles } from 'lucide-react';
+import { Award, Compass, Sparkles, Volume2, VolumeX } from 'lucide-react';
 
 export default function Introduction() {
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
   return (
     <section id="about" className="py-20 sm:py-28 bg-[#F3EFE7] border-b border-[#DDD3C3] relative overflow-hidden">
       {/* Subtle architectural grid pattern background */}
@@ -60,27 +69,58 @@ export default function Introduction() {
           {/* Right Column: Visual Luxury Imagery & Architectural Composition */}
           <div className="lg:col-span-7">
             <div className="relative">
-              {/* Main Architectural Showcase Image */}
+              {/* Main Architectural Showcase Video */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-sm overflow-hidden shadow-elevated border border-[#DDD3C3] aspect-[16/10]"
+                className="relative rounded-sm overflow-hidden shadow-elevated border border-[#DDD3C3] aspect-[16/10] bg-charcoal"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
-                  alt="Luxury living space designed by AR Interiors Noida"
-                  className="w-full h-full object-cover brightness-[0.95] contrast-[1.03] hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1D1A]/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover brightness-[0.98] contrast-[1.02]"
+                >
+                  <source src="/showcase-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Subtle Luxury Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1D1A]/70 via-transparent to-black/20 pointer-events-none" />
+
+                {/* Audio Mute/Unmute Toggle Button */}
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/85 backdrop-blur-md text-white/90 text-xs font-medium border border-white/20 transition-all cursor-pointer shadow-md"
+                  title={isMuted ? "Click to Unmute Video" : "Click to Mute Video"}
+                >
+                  {isMuted ? (
+                    <>
+                      <VolumeX className="w-3.5 h-3.5 text-[#D6BA85]" />
+                      <span className="text-[11px] font-sans">Unmute Audio</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-[11px] font-sans">Sound On</span>
+                    </>
+                  )}
+                </button>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white pointer-events-none z-10">
                   <div>
-                    <span className="text-[11px] tracking-widest text-[#D6BA85] uppercase block font-medium">FEATURED ATELIER</span>
+                    <span className="text-[11px] tracking-widest text-[#D6BA85] uppercase block font-medium">FEATURED WALKTHROUGH</span>
                     <h4 className="text-lg font-serif font-normal text-white">The Solarium Residence, Noida Sec 128</h4>
                   </div>
-                  <span className="text-xs font-mono text-[#D6BA85] px-2.5 py-1 bg-black/40 backdrop-blur-md rounded-sm border border-white/20">
-                    6,200 SQ.FT
+                  <span className="text-xs font-mono text-[#D6BA85] px-2.5 py-1 bg-black/50 backdrop-blur-md rounded-sm border border-white/20">
+                    HD VIDEO
                   </span>
                 </div>
               </motion.div>
