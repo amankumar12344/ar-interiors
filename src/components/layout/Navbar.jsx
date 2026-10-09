@@ -285,7 +285,7 @@ export default function Navbar() {
           <div className="text-center text-xs text-ivory/50 space-y-1">
             <p className="flex items-center justify-center gap-1">
               <MapPin className="w-3 h-3 text-gold" />
-              <span>Sector 62, Noida • Delhi NCR</span>
+              <span>Building No. B69, Sector 2 (Near Sec 15 Metro), Noida • 201301</span>
             </p>
             <p>100% Customized Turnkey Interiors</p>
           </div>

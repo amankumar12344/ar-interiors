@@ -49,7 +49,7 @@ export default function ConsultationCTA() {
             <div className="mt-6 flex items-center gap-6 text-xs text-[#9E9080] font-sans">
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#BF9C60]" />
-                <span>Studio: Sector 150 / 128 / 62, Noida</span>
+                <span>Studio: Building No. B69, Sector 2 (Near Sec 15 Metro), Noida • 201301</span>
               </span>
               <span>·</span>
               <span>Mon - Sat: 10:00 AM - 7:30 PM</span>
