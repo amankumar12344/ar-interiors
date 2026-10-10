@@ -16,26 +16,27 @@ export default function DesignCategories() {
           align="center"
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mt-12">
           {designCategories.map((cat, idx) => (
             <Link
               key={cat.id}
               to="/projects"
-              className="group relative overflow-hidden bg-cream block aspect-[4/5]"
+              className="group block"
             >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent transition-opacity duration-300" />
+              <div className="relative overflow-hidden bg-cream aspect-[4/5] rounded-sm shadow-subtle border border-taupe/20">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <span className="text-[10px] uppercase tracking-widest text-gold-light block mb-1">
+              <div className="pt-3 pb-1">
+                <span className="text-[10px] uppercase tracking-widest text-[#96743A] font-semibold block">
                   {cat.count}
                 </span>
-                <h4 className="text-lg sm:text-xl font-serif font-normal group-hover:text-cream transition-colors">
+                <h4 className="text-base sm:text-lg font-serif font-normal text-charcoal group-hover:text-[#96743A] transition-colors mt-0.5">
                   {cat.name}
                 </h4>
               </div>

@@ -403,7 +403,7 @@ export default function ServicesGallery() {
               key={item.id}
               className="bg-white rounded-sm border border-taupe/25 overflow-hidden shadow-subtle hover:shadow-elevated transition-all duration-300 flex flex-col group"
             >
-              {/* Image Container with Click-to-Inspect */}
+              {/* Image Container with Click-to-Inspect - 100% Clean Image */}
               <div 
                 className="relative aspect-[16/10] overflow-hidden bg-cream cursor-pointer"
                 onClick={() => handleOpenModal(item.id)}
@@ -414,42 +414,34 @@ export default function ServicesGallery() {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-
-                {/* Badge */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className="text-[11px] uppercase tracking-widest font-semibold px-3 py-1 bg-charcoal/90 text-gold-light backdrop-blur-md rounded-sm border border-white/15">
-                    {item.category}
-                  </span>
-                  {item.badge && (
-                    <span className="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 bg-amber-500/90 text-charcoal backdrop-blur-md rounded-sm border border-amber-300 shadow-sm">
-                      {item.badge}
-                    </span>
-                  )}
-                </div>
-
-                {/* Hover Quick View Trigger */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-charcoal/90 text-ivory text-xs uppercase tracking-widest rounded-sm border border-white/20 backdrop-blur-md shadow-lg">
-                    <Maximize2 className="w-3.5 h-3.5 text-gold" />
-                    <span>Inspect Full Specs</span>
-                  </span>
-                </div>
-
-                {/* Title on Image */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <h3 className="text-2xl font-serif text-white font-normal group-hover:text-gold-light transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-ivory/80 font-light mt-0.5">
-                    {item.subtitle}
-                  </p>
-                </div>
               </div>
 
               {/* Card Body with Key Features */}
               <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-white">
                 <div>
+                  {/* Category & Badge Below Image */}
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <span className="text-[11px] uppercase tracking-widest font-semibold px-2.5 py-0.5 bg-cream text-charcoal rounded-xs border border-taupe/20">
+                      {item.category}
+                    </span>
+                    {item.badge && (
+                      <span className="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-xs border border-amber-300">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title & Subtitle Below Image */}
+                  <h3 
+                    onClick={() => handleOpenModal(item.id)}
+                    className="text-xl sm:text-2xl font-serif text-charcoal font-normal group-hover:text-[#96743A] transition-colors mb-1 cursor-pointer"
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#7A6F62] font-normal mb-3">
+                    {item.subtitle}
+                  </p>
+
                   <p className="text-xs text-charcoal/75 leading-relaxed line-clamp-2 font-light mb-4">
                     {item.description}
                   </p>
@@ -557,30 +549,27 @@ export default function ServicesGallery() {
 
               {/* Modal Content */}
               <div className="p-6 sm:p-8 space-y-6">
-                {/* Hero Showcase Image */}
+                {/* Hero Showcase Image - 100% Clean Image */}
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-sm overflow-hidden bg-charcoal shadow-inner">
                   <img
                     src={activeModalService.image}
                     alt={activeModalService.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-60" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-xs uppercase tracking-widest text-gold-light font-medium">
-                      AR Interiors Signature Discipline
-                    </p>
-                    <h3 className="text-2xl sm:text-3xl font-serif text-white mt-1">
-                      {activeModalService.title}
-                    </h3>
-                  </div>
                 </div>
 
-                {/* Subtitle & Full Description */}
+                {/* Title, Subtitle & Full Description Cleanly Below Image */}
                 <div>
-                  <h4 className="text-base sm:text-lg font-serif text-charcoal font-medium">
+                  <p className="text-xs uppercase tracking-widest text-[#96743A] font-semibold mb-1">
+                    AR Interiors Signature Discipline
+                  </p>
+                  <h3 className="text-2xl sm:text-3xl font-serif text-charcoal font-medium">
+                    {activeModalService.title}
+                  </h3>
+                  <h4 className="text-sm sm:text-base font-serif text-[#7A6F62] font-medium mt-1">
                     {activeModalService.subtitle}
                   </h4>
-                  <p className="text-sm text-charcoal/80 leading-relaxed font-light mt-2">
+                  <p className="text-sm text-charcoal/80 leading-relaxed font-light mt-3">
                     {activeModalService.description}
                   </p>
                 </div>

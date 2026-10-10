@@ -9,25 +9,24 @@ export default function ServiceCard({ service }) {
       className="group flex flex-col justify-between h-full bg-white border border-[#DDD3C3] hover:border-[#BF9C60] transition-all duration-500 rounded-sm overflow-hidden shadow-sm hover:shadow-elevated"
     >
       <div>
-        {/* Architectural Service Imagery */}
+        {/* Architectural Service Imagery - Completely Clean */}
         <div className="relative aspect-[16/10] overflow-hidden bg-[#ECE5D8]">
           <img
             src={service.heroImage}
             alt={service.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.96]"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-          
-          {/* Top Category Badge */}
-          <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-sm border border-white/20 text-white flex items-center gap-2">
-            <span className="text-[11px] font-mono text-[#D6BA85] font-semibold">{service.number}</span>
-            <span className="text-[10px] tracking-widest uppercase font-medium">STUDIO DISCIPLINE</span>
-          </div>
         </div>
 
         {/* Card Content with Uniform Spacing */}
         <div className="p-6 sm:p-7">
+          {/* Top Category Badge Cleanly Below Image */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-[11px] font-mono text-[#96743A] font-semibold">{service.number}</span>
+            <span className="text-[10px] tracking-widest uppercase font-semibold text-[#5C554D]">STUDIO DISCIPLINE</span>
+          </div>
+
           {/* Title with standardized height */}
           <div className="min-h-[3.25rem] flex items-center">
             <h3 className="text-xl sm:text-2xl font-serif text-[#1F1D1A] group-hover:text-[#96743A] transition-colors leading-tight">
