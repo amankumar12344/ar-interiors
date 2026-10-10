@@ -162,7 +162,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-4">
                   <Mail className="w-5 h-5 text-gold shrink-0" />
                   <div>
-                    <span className="block text-charcoal font-medium">{CONTACT_INFO.email}</span>
+                    <a href={`mailto:${CONTACT_INFO.email}`} className="block text-charcoal font-medium hover:text-gold transition-colors">{CONTACT_INFO.email}</a>
                     <span className="text-xs text-taupe">Inquiries & Tenders</span>
                   </div>
                 </div>

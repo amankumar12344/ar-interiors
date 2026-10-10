@@ -3,7 +3,7 @@
   phoneDisplay: '+91 85859 51135',
   phoneRaw: '+918585951135',
   whatsappNumber: '918585951135',
-  email: 'studio@arinteriors.in',
+  email: 'info@arinteriorsnoida.com',
   address: 'Building No. B69, Sector 2, Near Metro Station Sector 15, Noida, Uttar Pradesh - 201301',
   hours: 'Mon - Sat: 10:00 AM - 7:30 PM',
   
