@@ -1,5 +1,70 @@
 export const projectsData = [
   {
+    id: "sky-duplex-penthouse-360",
+    slug: "sky-duplex-penthouse-360",
+    title: "The Sky Duplex Penthouse (360° Turnkey Execution)",
+    category: "Turnkey Architecture & Interior",
+    categorySlug: "residential-interiors",
+    location: "Noida Expressway, Sector 128",
+    year: "2024",
+    area: "7,200 sq.ft",
+    completionTime: "8 Months",
+    coverImage: "/gallery/360-construction-duplex-completed.jpg",
+    gallery: [
+      "/gallery/360-construction-duplex-completed.jpg",
+      "/gallery/360-construction-duplex-in-progress.jpg",
+      "/gallery/360-vr-penthouse-living.jpg",
+      "/gallery/site-execution-false-ceiling.jpg"
+    ],
+    beforeImage: "/gallery/360-construction-duplex-in-progress.jpg",
+    afterImage: "/gallery/360-construction-duplex-completed.jpg",
+    subtitle: "Complete turnkey transformation documented from ceiling-level 360° perspective to final handover",
+    overview: "An architectural tour-de-force showcasing our end-to-end capabilities from raw drywall framing, MEP conduits, and spiral staircase fabrication to immaculate Venetian plaster and bespoke Italian furnishings.",
+    clientBrief: "Deliver a monumentally scaled sky penthouse with complete turnkey accountability from bare shell to final handover.",
+    materials: [
+      "Chevron Smoked Oak Hardwood",
+      "Hand-Applied Venetian Plaster",
+      "Curved Architectural Glass Facade",
+      "Sculptural Spiral Staircase with LED Tracks"
+    ],
+    isFeatured: true,
+    gridSpan: "col-span-12 lg:col-span-8",
+    aspectRatio: "aspect-[16/10]"
+  },
+  {
+    id: "the-grand-mezzanine-villa-360",
+    slug: "the-grand-mezzanine-villa-360",
+    title: "The Grand Mezzanine Villa (360° Civil & Fit-Out)",
+    category: "Luxury Villa Architecture",
+    categorySlug: "architecture-design",
+    location: "Jaypee Greens, Greater Noida",
+    year: "2024",
+    area: "8,500 sq.ft",
+    completionTime: "9 Months",
+    coverImage: "/gallery/360-construction-villa-completed.jpg",
+    gallery: [
+      "/gallery/360-construction-villa-completed.jpg",
+      "/gallery/360-construction-villa-in-progress.jpg",
+      "/gallery/360-vr-master-bedroom-suite.jpg",
+      "/gallery/site-execution-marble-woodwork.jpg"
+    ],
+    beforeImage: "/gallery/360-construction-villa-in-progress.jpg",
+    afterImage: "/gallery/360-construction-villa-completed.jpg",
+    subtitle: "Double-height luxury villa civil execution, curved floating staircase, and bookmatched Italian marble",
+    overview: "Documenting our master craftsmanship from raw monolithic structural formwork and on-site marble cutting to mirror-finish Italian marble, curved brass balustrades, and full-height fluted walnut panelling.",
+    clientBrief: "Execute a palatial private estate featuring a dramatic curved staircase, double-height entertaining hall, and bespoke private suites.",
+    materials: [
+      "Bookmatched Italian Statuario Marble",
+      "Solid American Walnut Louvers",
+      "Curved Brass & Glass Balustrades",
+      "Coffered Concrete Architectural Ceilings"
+    ],
+    isFeatured: true,
+    gridSpan: "col-span-12 lg:col-span-4",
+    aspectRatio: "aspect-[16/10]"
+  },
+
+  {
     id: "the-serene-atelier-noida",
     slug: "the-serene-atelier-noida",
     title: "The Serene Atelier Residence",

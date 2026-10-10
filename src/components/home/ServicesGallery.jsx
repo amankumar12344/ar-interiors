@@ -1,10 +1,149 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowUpRight, Sparkles, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Compass, Hammer } from 'lucide-react';
 import Container from '../common/Container';
 import Button from '../common/Button';
 
 export const GALLERY_SERVICES = [
+  // --- 360° VR & READY TOURS & CIVIL PAIRS ---
+  {
+    id: "360-vr-penthouse-living",
+    category: "360° VR Tour",
+    categoryKey: "vr360",
+    title: "360° Panoramic VR Penthouse Living Lounge",
+    subtitle: "Double-height volume, Italian chandelier & floor-to-ceiling sunset skyline",
+    image: "/gallery/360-vr-penthouse-living.jpg",
+    badge: "360° VR PANORAMA",
+    description: "An immersive 360-degree equirectangular panoramic VR visualization of a signature luxury penthouse. Features double-height glass facades, bespoke crystal chandelier, conversational velvet seating layout, and illuminated fluted feature wall.",
+    features: [
+      "360-Degree Panoramic VR Perspective with Complete Visual Curvature",
+      "Double-Height Curtain Wall with Sunset Skyline Vista",
+      "Sculptural Custom Italian Glass Chandelier Installation",
+      "Monolithic Low-Profile Sectional Sofa & Floating Hearth"
+    ],
+    materials: ["Fluted Travertine", "Curved Glass Facade", "Deep Charcoal Velvet", "Brushed Champagne Brass"]
+  },
+  {
+    id: "360-construction-duplex-completed",
+    category: "Completed Handover (360°)",
+    categoryKey: "vr360",
+    title: "Sky Duplex: 100% Handover & Fully Furnished (360° View)",
+    subtitle: "The completed luxury duplex from the exact same top-down 360° perspective",
+    image: "/gallery/360-construction-duplex-completed.jpg",
+    badge: "READY HANDOVER (360°)",
+    description: "The identical penthouse duplex space post-handover. The raw framing and ceiling ducts transform into immaculate Venetian plaster, recessed magnetic track lights, illuminated spiral staircase, and rich chevron hardwood floors.",
+    features: [
+      "Matching Overhead 360° Perspective for Turnkey Verification",
+      "Architectural Sculptural Spiral Staircase with Warm Under-Tread LEDs",
+      "Seamless Venetian Plaster Wall Hand-Applied Finishes",
+      "Dual Conversational Lounge Areas with Curated Designer Furnishings"
+    ],
+    materials: ["Chevron Hardwood", "Venetian Stucco", "Glass Balustrades", "Recessed Black Line Tracks"]
+  },
+  {
+    id: "360-construction-duplex-in-progress",
+    category: "On-Site Execution (WIP)",
+    categoryKey: "construction",
+    title: "Sky Duplex: Top-Down 360° Civil & Framing Execution",
+    subtitle: "High ceiling-level 360° perspective of active fit-out & drywall framing",
+    image: "/gallery/360-construction-duplex-in-progress.jpg",
+    badge: "ON-SITE CIVIL (360°)",
+    description: "Documenting our turnkey execution standards from an elevated top-down 360-degree angle. Displays structural drywall framing, MEP ceiling electrical conduits, spiral staircase skeletal fabrication, laser alignment calibrations, and multi-team site coordination.",
+    features: [
+      "Top-Down 360° High Ceiling Architectural Site Photography",
+      "Precision Galvanized Steel Stud Framing for Acoustic Partitions",
+      "Overhead MEP Electrical Conduits & HVAC Trunk Routing",
+      "Laser-Level Calibration across 2-Storey Duplex Elevation"
+    ],
+    materials: ["Galvanized Steel Studs", "Acoustic Drywall", "Structural Concrete", "Laser Grid Benchmarks"]
+  },
+  {
+    id: "360-construction-villa-completed",
+    category: "Completed Handover (360°)",
+    categoryKey: "vr360",
+    title: "Grand Villa: Turnkey Ready Opulent Living Hall (360° View)",
+    subtitle: "The finished double-height villa from the exact same mezzanine 360° angle",
+    image: "/gallery/360-construction-villa-completed.jpg",
+    badge: "READY HANDOVER (360°)",
+    description: "The breathtaking finished transformation of the villa. The raw civil site transforms into high-gloss bookmatched Italian marble flooring, glass-and-brass curved grand staircase, architectural walnut fluting, and grand bespoke seating arrangements.",
+    features: [
+      "Matching Mezzanine 360° View Showcasing Turnkey Delivery",
+      "Mirror-Finish Bookmatched Italian Marble Flooring",
+      "Sculptural Curved Staircase with Integrated Step Lighting & Brass Rails",
+      "Full-Height Fluted American Walnut Feature Architecture"
+    ],
+    materials: ["Statuario Italian Marble", "American Walnut Fluting", "Brushed Brass Railings", "Bouclé & Velvet Upholstery"]
+  },
+  {
+    id: "360-construction-villa-in-progress",
+    category: "On-Site Execution (WIP)",
+    categoryKey: "construction",
+    title: "Grand Villa: Mezzanine 360° Civil & Marble Masonry",
+    subtitle: "High-angle 360° view of ongoing curved staircase & civil fit-out",
+    image: "/gallery/360-construction-villa-in-progress.jpg",
+    badge: "ON-SITE CIVIL (360°)",
+    description: "Site capture from the first-floor mezzanine looking down over the grand double-height living hall. Shows curved staircase structural shuttering, on-site Italian marble precision waterjet cutting, and coffered ceiling concrete framing.",
+    features: [
+      "Elevated Mezzanine 360° Wide-Angle Construction Documentation",
+      "Skeletal Curved Floating Staircase Shuttering & Rebar Work",
+      "On-Site Bookmatched Italian Marble Calibration & Wet Cutting",
+      "Double-Height Coffered Concrete Slab Structural Engineering"
+    ],
+    materials: ["Raw Monolithic Concrete", "Reinforced Steel Rebar", "Italian Marble Slabs", "Timber Formwork"]
+  },
+  {
+    id: "360-vr-master-bedroom-suite",
+    category: "360° VR Tour",
+    categoryKey: "vr360",
+    title: "360° Panoramic Master Sanctuary & Glass Walk-in",
+    subtitle: "Curved cove ceiling, integrated glass wardrobe & ensuite spa bath",
+    image: "/gallery/360-vr-master-bedroom-suite.jpg",
+    badge: "360° VR PANORAMA",
+    description: "An ultra-luxury master bedroom suite captured in a seamless 360-degree panoramic VR view. Showcases an architectural floating cove ceiling, bespoke fluted leather headboard, transparent floor-to-ceiling tinted glass walk-in wardrobe, and open ensuite soaking tub.",
+    features: [
+      "360° Equirectangular Architectural Camera Projection",
+      "Integrated Tinted-Glass Walk-in Wardrobe with Warm Sensor Lights",
+      "Freestanding Acrylic Bathtub with Floor-Mounted Brushed Fixture",
+      "Herringbone Smoked Oak Hardwood Flooring"
+    ],
+    materials: ["Chevron Smoked Oak", "Fluted Cognac Leather", "Smoked Tempered Glass", "Calacatta Gold Marble"]
+  },
+  {
+    id: "site-execution-false-ceiling",
+    category: "On-Site Execution (WIP)",
+    categoryKey: "construction",
+    title: "Precision Gypsum False Ceiling & Linear Light Channels",
+    subtitle: "On-site framing, recessed magnetic channels & laser level alignment",
+    image: "/gallery/site-execution-false-ceiling.jpg",
+    badge: "ON-SITE FIT-OUT",
+    description: "High-precision ceiling fit-out in an executive apartment. Skilled technicians aligning gypsum framing, magnetic track light channels, and timber ceiling soffits using digital laser alignment.",
+    features: [
+      "Level-10 Acoustic Gypsum Framing with Anti-Crack Shadow Beads",
+      "Recessed Flush Magnetic Track Profile Installation",
+      "Laser-Calibrated Level Lines across Living & Dining Zones",
+      "Organized, Clean Jobsite Execution following Zero-Dust Standards"
+    ],
+    materials: ["Gyproc Gypsum Boards", "Galvanized GI Channels", "Magnetic LED Aluminum Profiles", "Teak Veneer Trim"]
+  },
+  {
+    id: "site-execution-marble-woodwork",
+    category: "On-Site Execution (WIP)",
+    categoryKey: "construction",
+    title: "Turnkey Italian Marble Laying & Wall Millwork Fit-Out",
+    subtitle: "Skilled artisans installing bookmatched marble & bespoke timber panelling",
+    image: "/gallery/site-execution-marble-woodwork.jpg",
+    badge: "ON-SITE FIT-OUT",
+    description: "Master craftsmen installing large-format bookmatched Italian marble slabs with protective coating, while carpenters erect fluted timber architectural wall paneling with integrated warm cove backlighting.",
+    features: [
+      "Bookmatched Italian Marble Dry-Lay & Precision Zero-Lippage Setting",
+      "Protective Surface Cushion Films applied During Active Fit-Out",
+      "Bespoke Factory-Manufactured Fluted Veneer Wall Panels",
+      "Detailed Architectural Blueprint Execution on Workstations"
+    ],
+    materials: ["Calacatta Marble Slabs", "Polyurethane Adhesives", "Natural Fluted Oak Panels", "Low-VOC Sealers"]
+  },
+
+  // --- PREVIOUS ARCHITECTURAL PROJECTS ---
   {
     id: "contemporary-living-pavilion",
     category: "Living Rooms",
@@ -188,11 +327,13 @@ export default function ServicesGallery() {
   const [modalIndex, setModalIndex] = useState(null);
 
   const filterTabs = [
-    { key: 'all', label: 'All Services & Spaces' },
-    { key: 'architecture', label: 'Architecture & Villas' },
+    { key: 'all', label: 'All Showcase' },
+    { key: 'vr360', label: '🌐 360° VR & Ready Tours' },
+    { key: 'construction', label: '🏗️ On-Site Civil & Fit-Out' },
     { key: 'living', label: 'Living & Dining' },
-    { key: 'kitchen', label: 'Modular Kitchens' },
     { key: 'bedroom', label: 'Bedroom Suites' },
+    { key: 'architecture', label: 'Architecture & Villas' },
+    { key: 'kitchen', label: 'Modular Kitchens' },
     { key: 'commercial', label: 'Commercial Offices' },
     { key: 'pooja', label: 'Pooja Sanctums' }
   ];
@@ -234,7 +375,7 @@ export default function ServicesGallery() {
             Spaces We Specialize In & Shape
           </h2>
           <p className="mt-4 text-base sm:text-lg text-charcoal/75 font-light leading-relaxed">
-            Click on any space below to inspect architectural details, material palettes, and execution deliverables.
+            Click on any space below to inspect architectural details, 360° VR perspectives, on-site construction execution, and turnkey material palettes.
           </p>
         </div>
 
@@ -273,13 +414,18 @@ export default function ServicesGallery() {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
                 {/* Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-[11px] uppercase tracking-widest font-semibold px-3 py-1 bg-charcoal/85 text-gold-light backdrop-blur-md rounded-sm border border-white/15">
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                  <span className="text-[11px] uppercase tracking-widest font-semibold px-3 py-1 bg-charcoal/90 text-gold-light backdrop-blur-md rounded-sm border border-white/15">
                     {item.category}
                   </span>
+                  {item.badge && (
+                    <span className="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 bg-amber-500/90 text-charcoal backdrop-blur-md rounded-sm border border-amber-300 shadow-sm">
+                      {item.badge}
+                    </span>
+                  )}
                 </div>
 
                 {/* Hover Quick View Trigger */}
@@ -301,60 +447,51 @@ export default function ServicesGallery() {
                 </div>
               </div>
 
-              {/* Body Content */}
-              <div className="p-6 sm:p-7 flex-grow flex flex-col justify-between bg-white">
+              {/* Card Body with Key Features */}
+              <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-white">
                 <div>
-                  <p className="text-sm sm:text-base text-charcoal/80 font-light leading-relaxed mb-6">
+                  <p className="text-xs text-charcoal/75 leading-relaxed line-clamp-2 font-light mb-4">
                     {item.description}
                   </p>
 
-                  {/* Features Checklist */}
-                  <div className="mb-6 pt-5 border-t border-taupe/15">
-                    <span className="text-[10px] tracking-widest uppercase font-semibold text-gold-dark block mb-3">
-                      Key Execution Inclusions:
-                    </span>
-                    <ul className="space-y-2">
-                      {item.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-charcoal/85">
-                          <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="space-y-2 mb-5">
+                    {item.features.slice(0, 2).map((feat, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs text-charcoal/85">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                        <span className="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Material Palette Tags */}
-                  <div className="pt-4 border-t border-taupe/15 flex flex-wrap items-center gap-1.5 mb-6">
-                    <span className="text-[10px] uppercase tracking-wider text-taupe font-medium mr-1">
-                      Materials:
-                    </span>
-                    {item.materials.map((mat, mIdx) => (
-                      <span key={mIdx} className="text-[11px] px-2.5 py-0.5 bg-cream/70 text-charcoal/90 rounded-sm font-sans border border-taupe/20">
+                  {/* Material Pills */}
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-taupe/15">
+                    {item.materials.map((mat, idx) => (
+                      <span 
+                        key={idx}
+                        className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-cream/70 text-charcoal/70 border border-taupe/20 rounded-xs"
+                      >
                         {mat}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Card Actions */}
-                <div className="pt-4 border-t border-taupe/15 flex items-center justify-between">
-                  <Button
-                    to="/contact"
-                    variant="primary"
-                    size="sm"
-                    icon
-                    className="!bg-charcoal hover:!bg-gold-dark !text-white text-xs font-semibold"
-                  >
-                    Inquire For This Space
-                  </Button>
-
+                {/* Card Action Footer */}
+                <div className="mt-6 pt-4 border-t border-taupe/15 flex items-center justify-between">
                   <button
                     onClick={() => handleOpenModal(item.id)}
-                    className="text-xs tracking-wider uppercase font-serif text-gold-dark hover:text-charcoal font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+                    className="text-xs uppercase tracking-architectural font-semibold text-charcoal hover:text-gold-dark flex items-center gap-1.5 group/btn transition-colors cursor-pointer"
                   >
-                    <span>Full Specs</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <span>View Specifications</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </button>
+
+                  <a
+                    href="#consultation"
+                    className="text-[11px] uppercase tracking-wider text-taupe hover:text-charcoal transition-colors"
+                  >
+                    Request Estimate
+                  </a>
                 </div>
               </div>
             </div>
@@ -362,105 +499,145 @@ export default function ServicesGallery() {
         </div>
       </Container>
 
-      {/* Interactive Service Lightbox / Detail Modal */}
-      {activeModalService && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/85 backdrop-blur-md"
-          onClick={() => setModalIndex(null)}
-        >
+      {/* Interactive Detail Modal */}
+      <AnimatePresence>
+        {activeModalService && (
           <div 
-            className="bg-white rounded-sm max-w-3xl w-full max-h-[92vh] overflow-y-auto border border-taupe/30 shadow-modal relative p-6 sm:p-8"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-charcoal/80 backdrop-blur-sm"
+            onClick={() => setModalIndex(null)}
           >
-            {/* Close button */}
-            <button
-              onClick={() => setModalIndex(null)}
-              className="absolute top-4 right-4 p-2 text-charcoal/60 hover:text-charcoal transition-colors focus:outline-none cursor-pointer z-10"
-              aria-label="Close"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.25 }}
+              className="bg-white rounded-sm max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-taupe/30 relative flex flex-col"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Modal Image with Prev/Next Navigation */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm mb-6 bg-cream">
-              <img
-                src={activeModalService.image}
-                alt={activeModalService.title}
-                className="w-full h-full object-cover"
-              />
-
-              {/* Modal Prev / Next Arrows */}
-              <button
-                onClick={handlePrevModal}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/70 text-white flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors cursor-pointer"
-                aria-label="Previous service"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleNextModal}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/70 text-white flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors cursor-pointer"
-                aria-label="Next service"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="flex items-center justify-between mb-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/20 text-gold-dark rounded-full text-xs font-semibold uppercase">
-                <Sparkles className="w-3 h-3" />
-                <span>{activeModalService.category}</span>
-              </div>
-              <span className="text-xs text-charcoal/50 font-serif">
-                {modalIndex + 1} of {GALLERY_SERVICES.length}
-              </span>
-            </div>
-
-            <h3 className="text-3xl font-serif text-charcoal font-normal mb-2">
-              {activeModalService.title}
-            </h3>
-            <p className="text-base text-charcoal/75 font-light mb-6 leading-relaxed">
-              {activeModalService.description}
-            </p>
-
-            <div className="mb-6 p-5 bg-[#FAF7F2] rounded-sm border border-taupe/20">
-              <h4 className="text-xs font-semibold tracking-widest uppercase text-gold-dark mb-3">
-                Studio Execution Deliverables
-              </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {activeModalService.features.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2 text-xs sm:text-sm text-charcoal/85">
-                    <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-taupe/20">
-              <div className="flex flex-wrap gap-1.5 items-center">
-                <span className="text-xs text-taupe uppercase font-medium mr-1">Materials:</span>
-                {activeModalService.materials.map((mat, mIdx) => (
-                  <span key={mIdx} className="text-xs px-2.5 py-1 bg-cream rounded-sm text-charcoal">
-                    {mat}
+              {/* Modal Top Bar */}
+              <div className="sticky top-0 bg-white/95 backdrop-blur-md px-6 py-4 border-b border-taupe/20 flex items-center justify-between z-20">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] uppercase tracking-widest font-semibold px-2.5 py-0.5 bg-charcoal text-gold-light rounded-xs">
+                    {activeModalService.category}
                   </span>
-                ))}
+                  {activeModalService.badge && (
+                    <span className="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 bg-amber-100 text-amber-900 border border-amber-300 rounded-xs">
+                      {activeModalService.badge}
+                    </span>
+                  )}
+                  <span className="text-xs text-taupe font-mono hidden sm:inline">
+                    {modalIndex + 1} / {GALLERY_SERVICES.length}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handlePrevModal}
+                    className="p-1.5 hover:bg-cream rounded-sm text-charcoal/70 hover:text-charcoal transition-colors cursor-pointer"
+                    title="Previous Space"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={handleNextModal}
+                    className="p-1.5 hover:bg-cream rounded-sm text-charcoal/70 hover:text-charcoal transition-colors cursor-pointer"
+                    title="Next Space"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setModalIndex(null)}
+                    className="p-1.5 hover:bg-cream rounded-sm text-charcoal/70 hover:text-charcoal transition-colors ml-2 cursor-pointer"
+                    title="Close"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
-              <Button
-                to="/contact"
-                variant="primary"
-                size="md"
-                icon
-                onClick={() => setModalIndex(null)}
-                className="!bg-charcoal hover:!bg-gold-dark !text-white"
-              >
-                Book Consultation for {activeModalService.category}
-              </Button>
-            </div>
+              {/* Modal Content */}
+              <div className="p-6 sm:p-8 space-y-6">
+                {/* Hero Showcase Image */}
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-sm overflow-hidden bg-charcoal shadow-inner">
+                  <img
+                    src={activeModalService.image}
+                    alt={activeModalService.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-60" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-xs uppercase tracking-widest text-gold-light font-medium">
+                      AR Interiors Signature Discipline
+                    </p>
+                    <h3 className="text-2xl sm:text-3xl font-serif text-white mt-1">
+                      {activeModalService.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Subtitle & Full Description */}
+                <div>
+                  <h4 className="text-base sm:text-lg font-serif text-charcoal font-medium">
+                    {activeModalService.subtitle}
+                  </h4>
+                  <p className="text-sm text-charcoal/80 leading-relaxed font-light mt-2">
+                    {activeModalService.description}
+                  </p>
+                </div>
+
+                {/* Key Deliverables Grid */}
+                <div className="bg-[#FAF7F2] p-5 sm:p-6 rounded-sm border border-taupe/20">
+                  <h5 className="text-xs uppercase tracking-architectural text-charcoal font-semibold mb-4 flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+                    <span>Architectural Specifications & Deliverables</span>
+                  </h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {activeModalService.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-charcoal/85">
+                        <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                        <span className="leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Material Palette */}
+                <div>
+                  <h5 className="text-xs uppercase tracking-architectural text-charcoal font-semibold mb-3">
+                    Curated Material Palette
+                  </h5>
+                  <div className="flex flex-wrap gap-2">
+                    {activeModalService.materials.map((mat, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs px-3 py-1.5 bg-cream/80 text-charcoal border border-taupe/25 rounded-xs font-light"
+                      >
+                        {mat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Modal CTA */}
+                <div className="pt-4 border-t border-taupe/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-xs text-taupe text-center sm:text-left">
+                    Want to execute a similar bespoke concept for your property?
+                  </p>
+                  <Button
+                    to="/contact"
+                    variant="primary"
+                    size="md"
+                    className="w-full sm:w-auto"
+                    onClick={() => setModalIndex(null)}
+                  >
+                    Consult Our Principal Architect
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </section>
   );
 }
