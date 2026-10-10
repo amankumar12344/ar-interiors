@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
   const whatsappUrl = CONTACT_INFO.getWhatsappUrl();
 
   return (
-    <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-2.5 font-sans select-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-2 font-sans select-none">
       {/* Interactive Tooltip Card */}
       {showTooltip && (
         <div className="relative max-w-xs bg-[#1A1815] text-[#F5F2EB] border border-[#BF9C60]/40 rounded-xl shadow-2xl p-3.5 pr-8 text-xs backdrop-blur-md animate-fadeIn">
@@ -44,7 +44,7 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping -z-10 group-hover:opacity-100"></span>
         <svg

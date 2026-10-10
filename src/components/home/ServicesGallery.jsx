@@ -380,12 +380,12 @@ export default function ServicesGallery() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 sm:mb-14">
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-0 sm:flex-wrap sm:justify-center no-scrollbar mb-10 sm:mb-14 px-1 sm:px-0">
           {filterTabs.map(tab => (
             <button
               key={tab.key}
               onClick={() => setActiveFilter(tab.key)}
-              className={`text-xs uppercase tracking-architectural font-medium px-4 sm:px-5 py-2.5 rounded-sm transition-all duration-200 cursor-pointer ${
+              className={`text-[11px] sm:text-xs uppercase tracking-architectural font-medium px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-sm transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                 activeFilter === tab.key
                   ? 'bg-charcoal text-white shadow-md border border-charcoal'
                   : 'bg-white text-charcoal/75 hover:text-charcoal hover:bg-cream/60 border border-taupe/25'

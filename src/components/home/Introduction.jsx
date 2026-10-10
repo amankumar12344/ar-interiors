@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
-import { Award, Compass, Sparkles, Volume2, VolumeX } from 'lucide-react';
+import { Award, Compass, Sparkles, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 
 export default function Introduction() {
   const videoRef = useRef(null);
@@ -13,8 +13,18 @@ export default function Introduction() {
       setIsMuted(videoRef.current.muted);
     }
   };
+
+  const toggleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitEnterFullscreen) {
+        videoRef.current.webkitEnterFullscreen();
+      }
+    }
+  };
   return (
-    <section id="about" className="py-20 sm:py-28 bg-[#F3EFE7] border-b border-[#DDD3C3] relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-24 bg-[#F3EFE7] border-b border-[#DDD3C3] relative overflow-hidden">
       {/* Subtle architectural grid pattern background */}
       <div 
         className="absolute inset-0 opacity-[0.035] pointer-events-none" 
@@ -50,18 +60,18 @@ export default function Introduction() {
             </p>
 
             {/* Studio Key Stats in Warm Stone Tiles */}
-            <div className="mt-8 grid grid-cols-3 gap-3 pt-6 border-t border-[#DDD3C3]">
-              <div className="p-3 bg-white/70 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Focus</span>
-                <span className="font-serif text-base sm:text-lg font-medium text-[#1F1D1A]">Noida & NCR</span>
+            <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-3 pt-6 border-t border-[#DDD3C3]">
+              <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Focus</span>
+                <span className="font-serif text-xs sm:text-base font-semibold text-[#1F1D1A]">Noida & NCR</span>
               </div>
-              <div className="p-3 bg-white/70 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Method</span>
-                <span className="font-serif text-base sm:text-lg font-medium text-[#1F1D1A]">Turnkey</span>
+              <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Method</span>
+                <span className="font-serif text-xs sm:text-base font-semibold text-[#1F1D1A]">Turnkey</span>
               </div>
-              <div className="p-3 bg-white/70 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Delivery</span>
-                <span className="font-serif text-base sm:text-lg font-medium text-[#96743A]">Fixed BoQ</span>
+              <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Delivery</span>
+                <span className="font-serif text-xs sm:text-base font-semibold text-[#96743A]">Fixed BoQ</span>
               </div>
             </div>
           </div>
@@ -71,11 +81,11 @@ export default function Introduction() {
             <div className="relative">
               {/* Main Architectural Showcase Video */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-sm overflow-hidden shadow-elevated border border-[#DDD3C3] aspect-video bg-black"
+                className="relative rounded-sm overflow-hidden shadow-2xl border border-[#DDD3C3] w-full h-[320px] sm:h-[400px] md:h-[460px] bg-black"
               >
                 <video
                   ref={videoRef}
@@ -84,33 +94,44 @@ export default function Introduction() {
                   muted
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-contain brightness-[0.98] contrast-[1.02]"
+                  className="w-full h-full object-cover brightness-[0.98] contrast-[1.02]"
                 >
                   <source src="/showcase-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
+                {/* Control Overlay Buttons */}
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 flex items-center gap-2">
+                  {/* Fullscreen Button */}
+                  <button
+                    type="button"
+                    onClick={toggleFullscreen}
+                    className="p-2 rounded-full bg-black/60 hover:bg-black/85 backdrop-blur-md text-white/90 border border-white/20 transition-all cursor-pointer shadow-md"
+                    title="Watch Fullscreen"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5 text-[#D6BA85]" />
+                  </button>
 
-                {/* Audio Mute/Unmute Toggle Button */}
-                <button
-                  type="button"
-                  onClick={toggleMute}
-                  className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/85 backdrop-blur-md text-white/90 text-xs font-medium border border-white/20 transition-all cursor-pointer shadow-md"
-                  title={isMuted ? "Click to Unmute Video" : "Click to Mute Video"}
-                >
-                  {isMuted ? (
-                    <>
-                      <VolumeX className="w-3.5 h-3.5 text-[#D6BA85]" />
-                      <span className="text-[11px] font-sans">Unmute Audio</span>
-                    </>
-                  ) : (
-                    <>
-                      <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-[11px] font-sans">Sound On</span>
-                    </>
-                  )}
-                </button>
-
+                  {/* Audio Mute/Unmute Toggle */}
+                  <button
+                    type="button"
+                    onClick={toggleMute}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/85 backdrop-blur-md text-white/90 text-xs font-medium border border-white/20 transition-all cursor-pointer shadow-md"
+                    title={isMuted ? "Click to Unmute Video" : "Click to Mute Video"}
+                  >
+                    {isMuted ? (
+                      <>
+                        <VolumeX className="w-3.5 h-3.5 text-[#D6BA85]" />
+                        <span className="text-[11px] font-sans">Unmute Audio</span>
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="text-[11px] font-sans">Sound On</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </motion.div>
 
             </div>
