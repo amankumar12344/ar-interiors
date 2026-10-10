@@ -31,11 +31,11 @@ export default function Footer() {
                 
                 <div className="flex flex-col">
                   <span className="font-serif text-2xl sm:text-3xl tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all">
-                    AR INTERIORS
+                    AR INTERIORS &
                   </span>
-                  <span className="text-[9px] sm:text-[10px] tracking-[0.28em] text-[#D6BA85] uppercase font-sans mt-1.5 flex items-center gap-1.5 font-medium">
+                  <span className="text-[9px] sm:text-[10px] tracking-[0.24em] text-[#D6BA85] uppercase font-sans mt-1.5 flex items-center gap-1.5 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#BF9C60] inline-block"></span>
-                    <span>ARCHITECT & DESIGNER STUDIO</span>
+                    <span>ARCHITECT DESIGNER STUDIO</span>
                   </span>
                 </div>
               </Link>
