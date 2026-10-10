@@ -79,13 +79,13 @@ export default function Introduction() {
           {/* Right Column: Visual Luxury Imagery & Architectural Composition */}
           <div className="lg:col-span-7">
             <div className="relative">
-              {/* Main Architectural Showcase Video */}
+              {/* Main Architectural Showcase Video - 100% Full Uncropped Frame with Logo Visible */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-sm overflow-hidden shadow-2xl border border-[#DDD3C3] w-full h-[320px] sm:h-[400px] md:h-[460px] bg-black"
+                className="relative rounded-sm overflow-hidden shadow-2xl border border-[#DDD3C3] w-full aspect-video bg-black"
               >
                 <video
                   ref={videoRef}
@@ -94,7 +94,7 @@ export default function Introduction() {
                   muted
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-cover brightness-[0.98] contrast-[1.02]"
+                  className="w-full h-full object-contain aspect-video block"
                 >
                   <source src="/showcase-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
