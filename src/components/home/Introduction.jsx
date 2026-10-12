@@ -43,35 +43,42 @@ export default function Introduction() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 text-xs tracking-architectural uppercase font-medium text-[#96743A] mb-4 px-3 py-1 bg-[#EBE4D6] border border-[#DDD3C3] rounded-full"
+              className="inline-flex items-center gap-3 text-xs tracking-architectural uppercase font-medium text-[#96743A] mb-3 px-3 py-1 bg-[#EBE4D6] border border-[#DDD3C3] rounded-full"
             >
               <span className="w-2 h-2 rounded-full bg-[#BF9C60]" />
-              <span>AR INTERIORS & ARCHITECT STUDIO</span>
+              <span>ABOUT US</span>
             </motion.div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1F1D1A] font-normal leading-tight mt-2">
-              Studio of Architecture, <br />
-              <span className="italic text-[#7A5E44]">Interior Spatial Design</span> <br />
-              & Turnkey Execution
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1F1D1A] font-normal leading-tight mt-1">
+              About AR INTERIORS & <br />
+              <span className="italic text-[#7A5E44]">ARCHITECT DESIGNER STUDIO</span>
             </h2>
 
-            <p className="mt-5 text-sm sm:text-base text-[#4A453F] font-light leading-relaxed">
-              At AR Interiors, we reject formulaic templates and fast trends. We believe every home or workspace in Noida & NCR must reflect the authentic cadence of your daily rituals, the choreography of natural light, and the tactile joy of genuine materials.
-            </p>
+            <div className="mt-4 space-y-3 text-sm sm:text-[15px] text-[#4A453F] font-light leading-relaxed">
+              <p>
+                AR Interiors is a leading home interior & architect design company providing complete interior & architect design solutions across Delhi NCR. Having <strong>5+ years of experience</strong> and successfully completed <strong>more than 250 projects</strong>, we help create beautiful, useful, and comfortable homes.
+              </p>
+              <p>
+                We design and build modular kitchens, wardrobes, false ceilings, living rooms, office spaces, and custom furniture. We have a dedicated team of <strong>50 professionals</strong>, project managers, and supervisors handling every step, from design to final execution.
+              </p>
+              <p className="font-normal text-[#1F1D1A]">
+                Customer satisfaction is our motto. We are recognized among the best interior designers in Noida / Delhi NCR, turning dreams into living spaces with high quality, transparency, on-time delivery, and trusted after-sales support.
+              </p>
+            </div>
 
             {/* Studio Key Stats in Warm Stone Tiles */}
-            <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-3 pt-6 border-t border-[#DDD3C3]">
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3 pt-5 border-t border-[#DDD3C3]">
               <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Focus</span>
-                <span className="font-serif text-xs sm:text-base font-semibold text-[#1F1D1A]">Noida & NCR</span>
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Experience</span>
+                <span className="font-serif text-sm sm:text-lg font-bold text-[#1F1D1A]">5+ Years</span>
               </div>
               <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Method</span>
-                <span className="font-serif text-xs sm:text-base font-semibold text-[#1F1D1A]">Turnkey</span>
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Completed</span>
+                <span className="font-serif text-sm sm:text-lg font-bold text-[#1F1D1A]">250+ Sites</span>
               </div>
               <div className="p-2 sm:p-3 bg-white/80 border border-[#DDD3C3] rounded-sm text-center">
-                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Delivery</span>
-                <span className="font-serif text-xs sm:text-base font-semibold text-[#96743A]">Fixed BoQ</span>
+                <span className="text-[10px] sm:text-xs text-[#9E9080] uppercase tracking-wider block font-sans">Team</span>
+                <span className="font-serif text-sm sm:text-lg font-bold text-[#96743A]">50+ Pros</span>
               </div>
             </div>
           </div>

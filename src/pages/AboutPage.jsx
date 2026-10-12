@@ -18,12 +18,12 @@ export default function AboutPage() {
               <span>THE STUDIO</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal font-normal leading-[1.08] tracking-tight">
-              Crafting calm, architectural sanctuaries across Noida and Delhi NCR.
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-charcoal font-normal leading-[1.12] tracking-tight">
+              About AR INTERIORS & ARCHITECT DESIGNER STUDIO
             </h1>
 
-            <p className="mt-8 text-lg sm:text-xl text-charcoal/75 font-light leading-relaxed max-w-2xl">
-              AR Interiors & Architect Designer Studio was established with a singular conviction: that spaces should elevate the human spirit through natural light, honest materials, and bespoke spatial harmony.
+            <p className="mt-6 text-base sm:text-lg text-charcoal/80 font-light leading-relaxed max-w-3xl">
+              AR Interiors is a leading home interior & architect design company providing complete interior & architect design solutions across Delhi NCR. Having 5+ years of experience and having successfully completed more than 250 projects, we help create beautiful, useful, and comfortable homes.
             </p>
           </div>
         </Container>
@@ -56,10 +56,10 @@ export default function AboutPage() {
 
             <div className="lg:col-span-7 space-y-6 text-base text-charcoal/80 font-light leading-relaxed">
               <p>
-                Based in Noida, our multi-disciplinary studio brings together architects, interior spatial designers, modular engineers, and turnkey project managers under one roof. We reject the fragmented model where designs look brilliant on paper but unravel during execution.
+                We design and build modular kitchens, wardrobes, false ceilings, living rooms, office spaces, and custom furniture. We have a dedicated team of 50 professionals, project managers, and supervisors handling every single step, from initial 3D design to final turnkey execution.
               </p>
               <p>
-                Every project begins with a careful study of solar orientation, prevailing cross-winds, and client daily rituals. Whether we are orchestrating a double-height luxury penthouse at ATS Knightsbridge or designing an independent family villa in Greater Noida, our priority remains the same: creating spaces that feel peaceful, effortless, and deeply personal.
+                Customer satisfaction is our motto. We are recognized among the best interior designers in Noida / Delhi NCR. We believe completed projects speak quality, and our mission is turning dreams into living spaces with good quality, transparent work, on-time delivery, premium materials, and dependable after-sales support.
               </p>
             </div>
           </div>
