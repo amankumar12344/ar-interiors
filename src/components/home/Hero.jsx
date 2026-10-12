@@ -121,10 +121,10 @@ export default function Hero() {
 
       {/* Main Hero Content */}
       <Container className="relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div>
           
           {/* Left Column: Headlines & Actions */}
-          <div className="lg:col-span-8 max-w-3xl">
+          <div className="max-w-4xl">
             {/* Studio Eyebrow Stamp */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -211,56 +211,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Floating Architectural Project Badge */}
-          <div className="lg:col-span-4 hidden lg:flex justify-end">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                initial={{ opacity: 0, scale: 0.94, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.94, x: -20 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-sm bg-charcoal/70 backdrop-blur-xl border border-white/15 p-6 rounded-sm shadow-modal"
-              >
-                <div className="flex items-center justify-between text-xs tracking-widest text-gold uppercase mb-2">
-                  <span>Featured Work</span>
-                  <span>{slide.area}</span>
-                </div>
 
-                <h3 className="text-2xl font-serif text-ivory font-normal mb-1">
-                  {slide.title}
-                </h3>
-
-                <p className="flex items-center gap-1.5 text-xs text-ivory/70 mb-4">
-                  <MapPin className="w-3.5 h-3.5 text-gold" />
-                  <span>{slide.location}</span>
-                </p>
-
-                <div className="pt-4 border-t border-white/10">
-                  <span className="text-[10px] tracking-widest text-taupe uppercase block mb-2 font-medium">
-                    Material Palette:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {slide.palette.map((mat, mIdx) => (
-                      <span 
-                        key={mIdx}
-                        className="text-[11px] px-2.5 py-1 bg-white/5 border border-white/10 rounded-sm text-ivory/90"
-                      >
-                        {mat}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-ivory/60 font-serif">40-Pt Quality Handover</span>
-                  <Button to="/projects" variant="text" className="!text-gold hover:!text-gold-light !border-gold/40 text-xs">
-                    View Project Specs
-                  </Button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
         </div>
       </Container>
 
