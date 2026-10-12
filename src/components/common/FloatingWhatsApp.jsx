@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { PhoneCall } from "lucide-react";
 import { CONTACT_INFO } from "../../data/contactInfo";
 
@@ -8,11 +7,11 @@ export default function FloatingWhatsApp() {
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-3 font-sans select-none">
-      {/* Call / Contact Floating Button */}
-      <Link
-        to="/contact"
-        aria-label="Contact Studio"
-        title="Call / Book Consultation"
+      {/* Direct Phone Call Dialer Floating Button */}
+      <a
+        href={`tel:${CONTACT_INFO.phoneRaw}`}
+        aria-label="Direct Phone Call"
+        title="Direct Call: +91 85859 51135"
         className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#1A1815] text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#1A1815] border border-[#BF9C60]/60 shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
       >
         <span className="absolute inset-0 rounded-full bg-[#BF9C60] opacity-30 animate-ping -z-10 group-hover:opacity-60"></span>
@@ -20,9 +19,9 @@ export default function FloatingWhatsApp() {
         
         {/* Hover Label on Desktop */}
         <span className="absolute right-full mr-3 px-2.5 py-1 rounded bg-[#1A1815]/95 text-white text-[11px] font-medium tracking-wide uppercase shadow-lg border border-[#BF9C60]/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
-          Contact Studio
+          Call: {CONTACT_INFO.phoneDisplay}
         </span>
-      </Link>
+      </a>
 
       {/* Floating WhatsApp Action Button */}
       <a
