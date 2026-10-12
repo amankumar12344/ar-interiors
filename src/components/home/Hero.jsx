@@ -174,7 +174,7 @@ export default function Hero() {
                 size="lg" 
                 className="!text-ivory !border-white/30 hover:!bg-white/15 hover:!border-white"
               >
-                Book a Consultation
+                BOOK FREE CONSULTATION
               </Button>
             </div>
 

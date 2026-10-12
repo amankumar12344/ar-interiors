@@ -1,43 +1,11 @@
-﻿import React, { useState } from "react";
-import { X } from "lucide-react";
+import React from "react";
 import { CONTACT_INFO } from "../../data/contactInfo";
 
 export default function FloatingWhatsApp() {
-  const [showTooltip, setShowTooltip] = useState(true);
   const whatsappUrl = CONTACT_INFO.getWhatsappUrl();
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-2 font-sans select-none">
-      {/* Interactive Tooltip Card */}
-      {showTooltip && (
-        <div className="relative max-w-xs bg-[#1A1815] text-[#F5F2EB] border border-[#BF9C60]/40 rounded-xl shadow-2xl p-3.5 pr-8 text-xs backdrop-blur-md animate-fadeIn">
-          <button
-            onClick={() => setShowTooltip(false)}
-            aria-label="Close tooltip"
-            className="absolute top-2.5 right-2.5 text-[#C7BFB3] hover:text-[#DFBA73] transition-colors"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="font-serif text-[#DFBA73] font-medium tracking-wide text-sm">
-              AR Interiors Studio
-            </span>
-          </div>
-          <p className="text-[#C7BFB3] leading-relaxed">
-            Planning a new space? Chat directly with our principal architect on WhatsApp.
-          </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2.5 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#DFBA73] hover:text-[#F4E3BA] tracking-wider uppercase underline underline-offset-4"
-          >
-            Start Conversation &rarr;
-          </a>
-        </div>
-      )}
-
       {/* Floating Action Button */}
       <a
         href={whatsappUrl}
