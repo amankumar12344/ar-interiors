@@ -152,6 +152,6 @@ export const serviceCategories = [
       "Vastu Shastra alignment thoughtfully woven into modern spatial flow",
       "Detailed BoQ (Bill of Quantities) with zero hidden execution surprises"
     ],
-    noidaHighlight: "Virtual VR previews available for prospective homeowners relocating to Noida from across India and abroad."
+    noidaHighlight: "Photorealistic 3D design walkthroughs available for prospective homeowners relocating to Noida from across India and abroad."
   }
 ];

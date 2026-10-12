@@ -1,8 +1,8 @@
 export const projectsData = [
   {
-    id: "sky-duplex-penthouse-360",
-    slug: "sky-duplex-penthouse-360",
-    title: "The Sky Duplex Penthouse (360° Turnkey Execution)",
+    id: "sky-duplex-penthouse",
+    slug: "sky-duplex-penthouse",
+    title: "The Sky Duplex Penthouse",
     category: "Turnkey Architecture & Interior",
     categorySlug: "residential-interiors",
     location: "Noida Expressway, Sector 128",
@@ -18,7 +18,7 @@ export const projectsData = [
     ],
     beforeImage: "/gallery/360-construction-duplex-in-progress.jpg",
     afterImage: "/gallery/360-construction-duplex-completed.jpg",
-    subtitle: "Complete turnkey transformation documented from ceiling-level 360° perspective to final handover",
+    subtitle: "Complete turnkey transformation documented from structural framing to final architectural handover",
     overview: "An architectural tour-de-force showcasing our end-to-end capabilities from raw drywall framing, MEP conduits, and spiral staircase fabrication to immaculate Venetian plaster and bespoke Italian furnishings.",
     clientBrief: "Deliver a monumentally scaled sky penthouse with complete turnkey accountability from bare shell to final handover.",
     materials: [
@@ -32,9 +32,9 @@ export const projectsData = [
     aspectRatio: "aspect-[16/10]"
   },
   {
-    id: "the-grand-mezzanine-villa-360",
-    slug: "the-grand-mezzanine-villa-360",
-    title: "The Grand Mezzanine Villa (360° Civil & Fit-Out)",
+    id: "the-grand-mezzanine-villa",
+    slug: "the-grand-mezzanine-villa",
+    title: "The Grand Mezzanine Villa",
     category: "Luxury Villa Architecture",
     categorySlug: "architecture-design",
     location: "Jaypee Greens, Greater Noida",

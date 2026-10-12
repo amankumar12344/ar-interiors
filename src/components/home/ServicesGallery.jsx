@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowUpRight, Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Compass, Hammer } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Sparkles, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Container from '../common/Container';
 import Button from '../common/Button';
 
 export const GALLERY_SERVICES = [
-  // --- 360° VR & READY TOURS & CIVIL PAIRS ---
   {
-    id: "360-vr-penthouse-living",
-    category: "360° VR Tour",
-    categoryKey: "vr360",
-    title: "360° Panoramic VR Penthouse Living Lounge",
+    id: "panoramic-penthouse-lounge",
+    category: "Living Rooms",
+    categoryKey: "living",
+    title: "Panoramic Penthouse Living Lounge",
     subtitle: "Double-height volume, Italian chandelier & floor-to-ceiling sunset skyline",
     image: "/gallery/360-vr-penthouse-living.jpg",
-    badge: "360° VR PANORAMA",
-    description: "An immersive 360-degree equirectangular panoramic VR visualization of a signature luxury penthouse. Features double-height glass facades, bespoke crystal chandelier, conversational velvet seating layout, and illuminated fluted feature wall.",
+    badge: "PENTHOUSE LOUNGE",
+    description: "An expansive architectural showcase of a signature luxury penthouse living lounge. Features double-height glass facades, bespoke crystal chandelier, conversational velvet seating layout, and illuminated fluted feature wall.",
     features: [
-      "360-Degree Panoramic VR Perspective with Complete Visual Curvature",
+      "Expansive Panoramic Architecture with Complete Visual Horizon",
       "Double-Height Curtain Wall with Sunset Skyline Vista",
       "Sculptural Custom Italian Glass Chandelier Installation",
       "Monolithic Low-Profile Sectional Sofa & Floating Hearth"
@@ -24,16 +23,16 @@ export const GALLERY_SERVICES = [
     materials: ["Fluted Travertine", "Curved Glass Facade", "Deep Charcoal Velvet", "Brushed Champagne Brass"]
   },
   {
-    id: "360-construction-duplex-completed",
-    category: "Completed Handover (360°)",
-    categoryKey: "vr360",
-    title: "Sky Duplex: 100% Handover & Fully Furnished (360° View)",
-    subtitle: "The completed luxury duplex from the exact same top-down 360° perspective",
+    id: "sky-duplex-completed",
+    category: "Architecture & Villas",
+    categoryKey: "architecture",
+    title: "Sky Duplex: Turnkey Architecture & Handover",
+    subtitle: "Sculptural spiral staircase, Venetian plaster & curated designer furnishings",
     image: "/gallery/360-construction-duplex-completed.jpg",
-    badge: "READY HANDOVER (360°)",
-    description: "The identical penthouse duplex space post-handover. The raw framing and ceiling ducts transform into immaculate Venetian plaster, recessed magnetic track lights, illuminated spiral staircase, and rich chevron hardwood floors.",
+    badge: "READY HANDOVER",
+    description: "A completed luxury penthouse duplex following turnkey execution. Features hand-applied Venetian plaster walls, recessed magnetic track lights, illuminated spiral staircase, and rich chevron hardwood floors.",
     features: [
-      "Matching Overhead 360° Perspective for Turnkey Verification",
+      "Complete Architectural Turnkey Delivery & Handover",
       "Architectural Sculptural Spiral Staircase with Warm Under-Tread LEDs",
       "Seamless Venetian Plaster Wall Hand-Applied Finishes",
       "Dual Conversational Lounge Areas with Curated Designer Furnishings"
@@ -41,67 +40,33 @@ export const GALLERY_SERVICES = [
     materials: ["Chevron Hardwood", "Venetian Stucco", "Glass Balustrades", "Recessed Black Line Tracks"]
   },
   {
-    id: "360-construction-duplex-in-progress",
-    category: "On-Site Execution (WIP)",
-    categoryKey: "construction",
-    title: "Sky Duplex: Top-Down 360° Civil & Framing Execution",
-    subtitle: "High ceiling-level 360° perspective of active fit-out & drywall framing",
-    image: "/gallery/360-construction-duplex-in-progress.jpg",
-    badge: "ON-SITE CIVIL (360°)",
-    description: "Documenting our turnkey execution standards from an elevated top-down 360-degree angle. Displays structural drywall framing, MEP ceiling electrical conduits, spiral staircase skeletal fabrication, laser alignment calibrations, and multi-team site coordination.",
-    features: [
-      "Top-Down 360° High Ceiling Architectural Site Photography",
-      "Precision Galvanized Steel Stud Framing for Acoustic Partitions",
-      "Overhead MEP Electrical Conduits & HVAC Trunk Routing",
-      "Laser-Level Calibration across 2-Storey Duplex Elevation"
-    ],
-    materials: ["Galvanized Steel Studs", "Acoustic Drywall", "Structural Concrete", "Laser Grid Benchmarks"]
-  },
-  {
-    id: "360-construction-villa-completed",
-    category: "Completed Handover (360°)",
-    categoryKey: "vr360",
-    title: "Grand Villa: Turnkey Ready Opulent Living Hall (360° View)",
-    subtitle: "The finished double-height villa from the exact same mezzanine 360° angle",
+    id: "grand-villa-completed",
+    category: "Architecture & Villas",
+    categoryKey: "architecture",
+    title: "Grand Villa: Double-Height Opulent Living Hall",
+    subtitle: "Bookmatched Italian marble, curved staircase & fluted walnut panelling",
     image: "/gallery/360-construction-villa-completed.jpg",
-    badge: "READY HANDOVER (360°)",
-    description: "The breathtaking finished transformation of the villa. The raw civil site transforms into high-gloss bookmatched Italian marble flooring, glass-and-brass curved grand staircase, architectural walnut fluting, and grand bespoke seating arrangements.",
+    badge: "VILLA MASTERPIECE",
+    description: "A palatial luxury villa architectural fit-out. Features high-gloss bookmatched Italian marble flooring, glass-and-brass curved grand staircase, architectural walnut fluting, and bespoke luxury seating arrangements.",
     features: [
-      "Matching Mezzanine 360° View Showcasing Turnkey Delivery",
+      "Double-Height Grand Living Hall with Mezzanine Overlook",
       "Mirror-Finish Bookmatched Italian Marble Flooring",
       "Sculptural Curved Staircase with Integrated Step Lighting & Brass Rails",
       "Full-Height Fluted American Walnut Feature Architecture"
     ],
-    materials: ["Statuario Italian Marble", "American Walnut Fluting", "Brushed Brass Railings", "Bouclé & Velvet Upholstery"]
+    materials: ["Statuario Italian Marble", "American Walnut Fluting", "Brushed Brass Railings", "Boucle & Velvet Upholstery"]
   },
   {
-    id: "360-construction-villa-in-progress",
-    category: "On-Site Execution (WIP)",
-    categoryKey: "construction",
-    title: "Grand Villa: Mezzanine 360° Civil & Marble Masonry",
-    subtitle: "High-angle 360° view of ongoing curved staircase & civil fit-out",
-    image: "/gallery/360-construction-villa-in-progress.jpg",
-    badge: "ON-SITE CIVIL (360°)",
-    description: "Site capture from the first-floor mezzanine looking down over the grand double-height living hall. Shows curved staircase structural shuttering, on-site Italian marble precision waterjet cutting, and coffered ceiling concrete framing.",
-    features: [
-      "Elevated Mezzanine 360° Wide-Angle Construction Documentation",
-      "Skeletal Curved Floating Staircase Shuttering & Rebar Work",
-      "On-Site Bookmatched Italian Marble Calibration & Wet Cutting",
-      "Double-Height Coffered Concrete Slab Structural Engineering"
-    ],
-    materials: ["Raw Monolithic Concrete", "Reinforced Steel Rebar", "Italian Marble Slabs", "Timber Formwork"]
-  },
-  {
-    id: "360-vr-master-bedroom-suite",
-    category: "360° VR Tour",
-    categoryKey: "vr360",
-    title: "360° Panoramic Master Sanctuary & Glass Walk-in",
+    id: "master-bedroom-sanctuary",
+    category: "Bedroom Suites",
+    categoryKey: "bedroom",
+    title: "Master Bedroom Sanctuary & Glass Walk-in",
     subtitle: "Curved cove ceiling, integrated glass wardrobe & ensuite spa bath",
     image: "/gallery/360-vr-master-bedroom-suite.jpg",
-    badge: "360° VR PANORAMA",
-    description: "An ultra-luxury master bedroom suite captured in a seamless 360-degree panoramic VR view. Showcases an architectural floating cove ceiling, bespoke fluted leather headboard, transparent floor-to-ceiling tinted glass walk-in wardrobe, and open ensuite soaking tub.",
+    badge: "BESPOKE SUITE",
+    description: "An ultra-luxury master bedroom suite showcasing an architectural floating cove ceiling, bespoke fluted leather headboard, transparent floor-to-ceiling tinted glass walk-in wardrobe, and open ensuite soaking tub.",
     features: [
-      "360° Equirectangular Architectural Camera Projection",
+      "Architectural Curved Cove Ceiling with Hidden Ambient Glow",
       "Integrated Tinted-Glass Walk-in Wardrobe with Warm Sensor Lights",
       "Freestanding Acrylic Bathtub with Floor-Mounted Brushed Fixture",
       "Herringbone Smoked Oak Hardwood Flooring"
@@ -109,49 +74,14 @@ export const GALLERY_SERVICES = [
     materials: ["Chevron Smoked Oak", "Fluted Cognac Leather", "Smoked Tempered Glass", "Calacatta Gold Marble"]
   },
   {
-    id: "site-execution-false-ceiling",
-    category: "On-Site Execution (WIP)",
-    categoryKey: "construction",
-    title: "Precision Gypsum False Ceiling & Linear Light Channels",
-    subtitle: "On-site framing, recessed magnetic channels & laser level alignment",
-    image: "/gallery/site-execution-false-ceiling.jpg",
-    badge: "ON-SITE FIT-OUT",
-    description: "High-precision ceiling fit-out in an executive apartment. Skilled technicians aligning gypsum framing, magnetic track light channels, and timber ceiling soffits using digital laser alignment.",
-    features: [
-      "Level-10 Acoustic Gypsum Framing with Anti-Crack Shadow Beads",
-      "Recessed Flush Magnetic Track Profile Installation",
-      "Laser-Calibrated Level Lines across Living & Dining Zones",
-      "Organized, Clean Jobsite Execution following Zero-Dust Standards"
-    ],
-    materials: ["Gyproc Gypsum Boards", "Galvanized GI Channels", "Magnetic LED Aluminum Profiles", "Teak Veneer Trim"]
-  },
-  {
-    id: "site-execution-marble-woodwork",
-    category: "On-Site Execution (WIP)",
-    categoryKey: "construction",
-    title: "Turnkey Italian Marble Laying & Wall Millwork Fit-Out",
-    subtitle: "Skilled artisans installing bookmatched marble & bespoke timber panelling",
-    image: "/gallery/site-execution-marble-woodwork.jpg",
-    badge: "ON-SITE FIT-OUT",
-    description: "Master craftsmen installing large-format bookmatched Italian marble slabs with protective coating, while carpenters erect fluted timber architectural wall paneling with integrated warm cove backlighting.",
-    features: [
-      "Bookmatched Italian Marble Dry-Lay & Precision Zero-Lippage Setting",
-      "Protective Surface Cushion Films applied During Active Fit-Out",
-      "Bespoke Factory-Manufactured Fluted Veneer Wall Panels",
-      "Detailed Architectural Blueprint Execution on Workstations"
-    ],
-    materials: ["Calacatta Marble Slabs", "Polyurethane Adhesives", "Natural Fluted Oak Panels", "Low-VOC Sealers"]
-  },
-
-  // --- PREVIOUS ARCHITECTURAL PROJECTS ---
-  {
     id: "contemporary-living-pavilion",
-    category: "Living Rooms",
+    category: "Living & Dining",
     categoryKey: "living",
     title: "Minimalist Linear Living & Media Suite",
     subtitle: "Seamless timber ceiling coves, marble plinth & daylight geometry",
     image: "/gallery/contemporary-living-pavilion.jpg",
-    description: "An expansive, open-format living pavilion designed around uninterrupted sightlines and calibrated natural daylight. Featuring a floating marble media bench, dual architectural art alcoves, concealed HVAC ceiling detailing, and customized low-slung lounge seating.",
+    badge: "ARCHITECTURAL LIVING",
+    description: "An expansive, open-format living pavilion designed around uninterrupted sightlines and calibrated natural daylight. Features a floating marble media bench, dual architectural art alcoves, concealed HVAC ceiling detailing, and customized low-slung lounge seating.",
     features: [
       "Floating Italian Marble Media Plinth with Concealed Wire Inlets",
       "Recessed Warm Walnut Ceiling Perimeter with Flush LED Tracks",
@@ -162,11 +92,12 @@ export const GALLERY_SERVICES = [
   },
   {
     id: "fluted-timber-master-suite",
-    category: "Bedrooms",
+    category: "Bedroom Suites",
     categoryKey: "bedroom",
     title: "Biophilic Fluted Timber Master Suite",
     subtitle: "Acoustic vertical louvers, Japanese cherry blossom art & forest vista",
     image: "/gallery/fluted-timber-master-suite.jpg",
+    badge: "SIGNATURE BEDROOM",
     description: "A sanctuary of profound calm and natural tactility. The focal wall showcases full-height vertical timber acoustic louvers integrated with hand-crafted golden branch botanical artwork, ambient orb pendants, and a platform bed facing sweeping panoramic green views.",
     features: [
       "Floor-to-Ceiling Solid Wood Fluted Acoustic Wall Screen",
@@ -183,6 +114,7 @@ export const GALLERY_SERVICES = [
     title: "Curated Art & Library Salon",
     subtitle: "Full-height custom walnut shelving, statement abstract art & velvet seating",
     image: "/gallery/curated-art-library-lounge.jpg",
+    badge: "BESPOKE LIBRARY",
     description: "An intellectual, artistic salon marrying classical library millwork with vibrant contemporary art. Anchored by a bespoke multi-tier solid walnut bookcase, mid-century lounge chairs, an organic low-slung coffee table, and tailored velvet sofa seating.",
     features: [
       "Bespoke Full-Height Solid Walnut Millwork & Display Cabinetry",
@@ -193,12 +125,47 @@ export const GALLERY_SERVICES = [
     materials: ["Solid American Walnut", "Deep Petrol Blue Velvet", "Terracotta Accents", "Hand-Tufted Wool Rug"]
   },
   {
+    id: "site-execution-false-ceiling",
+    category: "Civil & Fit-Out",
+    categoryKey: "construction",
+    title: "Precision Gypsum False Ceiling & Linear Light Channels",
+    subtitle: "On-site framing, recessed magnetic channels & laser level alignment",
+    image: "/gallery/site-execution-false-ceiling.jpg",
+    badge: "ON-SITE FIT-OUT",
+    description: "High-precision ceiling fit-out in an executive apartment. Skilled technicians aligning gypsum framing, magnetic track light channels, and timber ceiling soffits using digital laser alignment.",
+    features: [
+      "Level-10 Acoustic Gypsum Framing with Anti-Crack Shadow Beads",
+      "Recessed Flush Magnetic Track Profile Installation",
+      "Laser-Calibrated Level Lines across Living & Dining Zones",
+      "Organized, Clean Jobsite Execution following Zero-Dust Standards"
+    ],
+    materials: ["Gyproc Gypsum Boards", "Galvanized GI Channels", "Magnetic LED Aluminum Profiles", "Teak Veneer Trim"]
+  },
+  {
+    id: "site-execution-marble-woodwork",
+    category: "Civil & Fit-Out",
+    categoryKey: "construction",
+    title: "Turnkey Italian Marble Laying & Wall Millwork Fit-Out",
+    subtitle: "Skilled artisans installing bookmatched marble & bespoke timber panelling",
+    image: "/gallery/site-execution-marble-woodwork.jpg",
+    badge: "ON-SITE FIT-OUT",
+    description: "Master craftsmen installing large-format bookmatched Italian marble slabs with protective coating, while carpenters erect fluted timber architectural wall paneling with integrated warm cove backlighting.",
+    features: [
+      "Bookmatched Italian Marble Dry-Lay & Precision Zero-Lippage Setting",
+      "Protective Surface Cushion Films applied During Active Fit-Out",
+      "Bespoke Factory-Manufactured Fluted Veneer Wall Panels",
+      "Detailed Architectural Blueprint Execution on Workstations"
+    ],
+    materials: ["Calacatta Marble Slabs", "Polyurethane Adhesives", "Natural Fluted Oak Panels", "Low-VOC Sealers"]
+  },
+  {
     id: "architecture",
-    category: "Architecture",
+    category: "Architecture & Villas",
     categoryKey: "architecture",
     title: "New Architectural Design & Villas",
     subtitle: "Ground-up planning, elevations & structural execution",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    badge: "ARCHITECTURAL ELEVATION",
     description: "Holistic architectural masterplanning for luxury private villas, bungalows, and multi-floor residences. We integrate daylight geometry, structural engineering liaison, municipal approval packages, and turnkey civil execution under one studio.",
     features: [
       "Custom 2D/3D Master Floor Plans & Circulation Zoning",
@@ -209,28 +176,13 @@ export const GALLERY_SERVICES = [
     materials: ["Dholpur Sandstone", "Structural Steel", "Low-E Glazing", "Weatherproof Louvers"]
   },
   {
-    id: "living-room",
-    category: "Living Rooms",
-    categoryKey: "living",
-    title: "Luxury Living Rooms & Spatial Zoning",
-    subtitle: "Double-height volumes, conversational seating & statement walls",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
-    description: "We craft living rooms as welcoming architectural centerpieces. Every layout balances large family gatherings with intimate conversation corners, incorporating seamless TV media plinths, acoustic ceiling coves, and curated art backdrops.",
-    features: [
-      "Bespoke Marble TV Consoles & Built-in Joinery",
-      "Layered Multi-Circuit Architectural Warm Lighting",
-      "Acoustic Wall Panelling with 1mm Shadow Gaps",
-      "Tailored Bouclé Sofas & Full-Grain Leather Loungers"
-    ],
-    materials: ["Italian Travertine", "Natural White Oak", "Ivory Linen", "Brushed Brass"]
-  },
-  {
     id: "modular-kitchen",
     category: "Modular Kitchens",
     categoryKey: "kitchen",
     title: "Bespoke Modular Kitchens & Islands",
     subtitle: "Precision engineering tailored for modern Indian culinary habits",
     image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
+    badge: "MODULAR KITCHEN",
     description: "Precision-engineered kitchens that marry heavy-duty durability with showroom elegance. We use marine-grade waterproof plywood (BWP/BWR), stain-proof quartz countertops, motorized corner carousels, and premium German hardware.",
     features: [
       "100% Waterproof Marine Plywood (IS 710 Grade)",
@@ -241,29 +193,14 @@ export const GALLERY_SERVICES = [
     materials: ["Calacatta Quartz", "Cashmere Matte Acrylic", "Champagne Gold Trims", "Tinted Glass"]
   },
   {
-    id: "master-bedroom",
-    category: "Bedrooms",
-    categoryKey: "bedroom",
-    title: "Master Bedroom Suites & Dressing Rooms",
-    subtitle: "Restful acoustic sanctuaries with walk-in wardrobe suites",
-    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80",
-    description: "Designed for profound rest and effortless organization. Featuring custom upholstered headboard feature walls, acoustic fluted timber panels, concealed dressing tables, and walk-in wardrobe suites with automated interior warm LEDs.",
-    features: [
-      "Full-Height Integrated Headboard Wall Detailing",
-      "Floor-to-Ceiling Tinted Glass Sliding Wardrobes",
-      "Automated Sensor LED Interior Wardrobe Illumination",
-      "Concealed Vanity Dressing Table with Fluted Mirrors"
-    ],
-    materials: ["Warm American Walnut", "Oatmeal Linen", "Bronze Tinted Glass", "Soft Bouclé"]
-  },
-  {
     id: "commercial-office",
-    category: "Workplaces",
+    category: "Commercial Workplaces",
     categoryKey: "commercial",
     title: "Corporate Offices & Executive Workplaces",
     subtitle: "Dynamic commercial interiors engineered for focus & brand pride",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-    description: "High-impact workplace environments balancing collaboration with deep focus zones. Designed to express corporate identity, optimize usable carpet area, minimize acoustic bleed, and deliver on strict turnkey timelines.",
+    badge: "COMMERCIAL FIT-OUT",
+    description: "High-impact workplace environments balancing collaboration with deep focus zones. Designed to express corporate identity, optimize practical carpet area, minimize acoustic bleed, and deliver on strict turnkey timelines.",
     features: [
       "Acoustic Felt Baffles & Wooden Ceiling Systems",
       "Executive MD Cabins & Soundproof Meeting Pods",
@@ -279,6 +216,7 @@ export const GALLERY_SERVICES = [
     title: "Mandir & Sacred Pooja Sanctuaries",
     subtitle: "Spiritual sanctuaries of serenity, marble & brass",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    badge: "SACRED SANCTUM",
     description: "Tranquil spiritual spaces crafted with reverence and architectural refinement. Featuring pure white Makrana marble, laser-cut solid brass jalis, warm backlit alabaster stone, and concealed storage drawers for ritual pooja items.",
     features: [
       "Hand-Selected White Makrana Marble Inlays",
@@ -295,6 +233,7 @@ export const GALLERY_SERVICES = [
     title: "Bespoke Dining Rooms & Bar Units",
     subtitle: "Intimate celebration spaces with statement chandeliers",
     image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80",
+    badge: "DINING & BAR",
     description: "Refined dining environments anchored by monolithic stone tables, custom upholstered dining chairs, architectural chandeliers, and integrated bar credenzas with temperature-controlled wine displays.",
     features: [
       "Monolithic 8-Seater Quartz & Marble Dining Tables",
@@ -311,6 +250,7 @@ export const GALLERY_SERVICES = [
     title: "Balcony Retreats & Green Verandas",
     subtitle: "Weatherproof urban sanctuaries connecting indoor living to nature",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
+    badge: "OUTDOOR VERANDA",
     description: "Transform apartment balconies into lush, serene extensions of your home. Incorporating composite wooden decking, vertical biophilic green walls, louvered sunshading, and weatherproof warm outdoor spotlights.",
     features: [
       "UV & Weather-Resistant Composite Deck Flooring",
@@ -328,14 +268,13 @@ export default function ServicesGallery() {
 
   const filterTabs = [
     { key: 'all', label: 'All Showcase' },
-    { key: 'vr360', label: '🌐 360° VR & Ready Tours' },
-    { key: 'construction', label: '🏗️ On-Site Civil & Fit-Out' },
     { key: 'living', label: 'Living & Dining' },
     { key: 'bedroom', label: 'Bedroom Suites' },
     { key: 'architecture', label: 'Architecture & Villas' },
     { key: 'kitchen', label: 'Modular Kitchens' },
     { key: 'commercial', label: 'Commercial Offices' },
-    { key: 'pooja', label: 'Pooja Sanctums' }
+    { key: 'pooja', label: 'Pooja Sanctums' },
+    { key: 'construction', label: 'On-Site Civil & Fit-Out' }
   ];
 
   const filteredServices = activeFilter === 'all'
@@ -375,7 +314,7 @@ export default function ServicesGallery() {
             Spaces We Specialize In & Shape
           </h2>
           <p className="mt-4 text-base sm:text-lg text-charcoal/75 font-light leading-relaxed">
-            Click on any space below to inspect architectural details, 360° VR perspectives, on-site construction execution, and turnkey material palettes.
+            Click on any space below to inspect architectural details, turnkey execution standards, bespoke finishes, and curated material palettes.
           </p>
         </div>
 
