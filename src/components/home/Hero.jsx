@@ -239,7 +239,7 @@ export default function Hero() {
           <div className="grid grid-cols-4 divide-x divide-white/10 text-center">
             <div className="px-4">
               <span className="text-xs text-gold font-medium tracking-wider block">NOIDA BASED STUDIO</span>
-              <span className="text-[11px] text-ivory/60">Expressway, Sec 150, 128, 50 & NCR</span>
+              <span className="text-[11px] text-ivory/60">B-69, Sector 2, Noida (Near Metro Sec 15)</span>
             </div>
             <div className="px-4">
               <span className="text-xs text-gold font-medium tracking-wider block">100% BESPOKE PLANNING</span>
