@@ -1,22 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { PhoneCall } from "lucide-react";
 import { CONTACT_INFO } from "../../data/contactInfo";
 
 export default function FloatingWhatsApp() {
   const whatsappUrl = CONTACT_INFO.getWhatsappUrl();
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-2 font-sans select-none">
-      {/* Floating Action Button */}
+    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-3 font-sans select-none">
+      {/* Call / Contact Floating Button */}
+      <Link
+        to="/contact"
+        aria-label="Contact Studio"
+        title="Call / Book Consultation"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#1A1815] text-[#D6BA85] hover:bg-[#BF9C60] hover:text-[#1A1815] border border-[#BF9C60]/60 shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
+      >
+        <span className="absolute inset-0 rounded-full bg-[#BF9C60] opacity-30 animate-ping -z-10 group-hover:opacity-60"></span>
+        <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:rotate-12" />
+        
+        {/* Hover Label on Desktop */}
+        <span className="absolute right-full mr-3 px-2.5 py-1 rounded bg-[#1A1815]/95 text-white text-[11px] font-medium tracking-wide uppercase shadow-lg border border-[#BF9C60]/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+          Contact Studio
+        </span>
+      </Link>
+
+      {/* Floating WhatsApp Action Button */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
         className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping -z-10 group-hover:opacity-100"></span>
         <svg
-          className="w-7 h-7 fill-current drop-shadow-sm group-hover:rotate-6 transition-transform"
+          className="w-6 h-6 sm:w-7 sm:h-7 fill-current drop-shadow-sm group-hover:rotate-6 transition-transform"
           viewBox="0 0 24 24"
         >
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.772.84 2.791.84 3.185 0 5.768-2.587 5.768-5.766.001-3.18-2.582-5.766-5.768-5.766zm9.969 5.766c0 5.519-4.481 10-10 10-1.748 0-3.385-.45-4.819-1.242l-5.181 1.355 1.378-5.034c-.879-1.488-1.378-3.224-1.378-5.079 0-5.519 4.481-10 10-10s10 4.481 10 10zm-5.467 2.593c-.092-.153-.339-.244-.707-.428-.368-.184-2.179-1.076-2.517-1.199-.338-.123-.584-.184-.83.184-.246.368-.953 1.199-1.168 1.445-.215.246-.43.277-.798.093-.368-.184-1.555-.573-2.962-1.828-1.096-.977-1.836-2.184-2.051-2.553-.215-.368-.023-.567.161-.75.166-.165.368-.43.552-.645.184-.215.246-.368.369-.614.123-.246.061-.46-.031-.645-.092-.184-.83-2.001-1.137-2.742-.299-.721-.603-.623-.83-.635l-.707-.012c-.246 0-.645.092-.983.46-.338.368-1.29 1.26-1.29 3.073 0 1.813 1.321 3.565 1.505 3.811.184.246 2.599 3.968 6.297 5.566.88.381 1.567.608 2.102.778.884.281 1.689.241 2.324.146.709-.106 2.179-.89 2.486-1.749.307-.86.307-1.597.215-.75-.092-.153-.338-.244-.706-.428z" />
