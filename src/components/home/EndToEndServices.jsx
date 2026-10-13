@@ -158,12 +158,12 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[96px] sm:min-h-[110px] relative hover:z-10"
+                  className={`bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 active:scale-95 active:bg-charcoal hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[92px] sm:min-h-[110px] relative hover:z-10 ${index === 14 ? "col-span-2 sm:col-span-1 max-w-[260px] sm:max-w-none mx-auto w-full" : ""}`}
                 >
                   <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-charcoal/90 mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
+                  <span className="text-[11px] sm:text-sm font-medium text-charcoal/90 mt-2 sm:mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
                     {item.label}
                   </span>
                 </motion.div>
@@ -222,12 +222,12 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[96px] sm:min-h-[110px] relative hover:z-10"
+                  className={`bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 active:scale-95 active:bg-charcoal hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[92px] sm:min-h-[110px] relative hover:z-10 ${index === 14 ? "col-span-2 sm:col-span-1 max-w-[260px] sm:max-w-none mx-auto w-full" : ""}`}
                 >
                   <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-charcoal/90 mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
+                  <span className="text-[11px] sm:text-sm font-medium text-charcoal/90 mt-2 sm:mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
                     {item.label}
                   </span>
                 </motion.div>

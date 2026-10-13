@@ -150,7 +150,7 @@ export default function Hero() {
                   <span>{slide.tag}</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-ivory leading-[1.08] tracking-tight">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-ivory leading-[1.12] sm:leading-[1.08] tracking-tight">
                   {slide.headline.split('The Way You Live')[0]}
                   {slide.headline.includes('The Way You Live') && (
                     <span className="italic font-light text-gold-light">The Way You Live.</span>
@@ -164,7 +164,7 @@ export default function Hero() {
             </AnimatePresence>
 
             {/* CTAs */}
-            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto">
               <Button to="/projects" variant="gold" size="lg" icon>
                 Explore Projects
               </Button>

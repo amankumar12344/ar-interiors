@@ -110,10 +110,10 @@ export default function Navbar() {
                   className="w-10 h-10 sm:w-11 sm:h-11 xl:w-12 xl:h-12 object-cover rounded-sm border border-[#BF9C60]/60 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="flex flex-col shrink-0">
-                  <span className="font-serif text-xl sm:text-2xl xl:text-[25px] tracking-[0.16em] sm:tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all whitespace-nowrap">
+                  <span className="font-serif text-lg sm:text-2xl xl:text-[25px] tracking-[0.14em] sm:tracking-[0.18em] font-semibold leading-none bg-gradient-to-r from-[#DFBA73] via-[#F4E3BA] to-[#C89B48] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:brightness-110 transition-all whitespace-nowrap">
                     AR INTERIORS &
                   </span>
-                  <span className="text-[8px] sm:text-[9px] xl:text-[10px] tracking-[0.22em] sm:tracking-[0.26em] text-ivory/75 uppercase font-sans mt-1 flex items-center gap-1.5 font-medium whitespace-nowrap">
+                  <span className="text-[7px] sm:text-[9px] xl:text-[10px] tracking-[0.18em] sm:tracking-[0.26em] text-ivory/75 uppercase font-sans mt-1 flex items-center gap-1.5 font-medium whitespace-nowrap">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block shrink-0"></span>
                     <span>ARCHITECT DESIGNER STUDIO</span>
                   </span>
