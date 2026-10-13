@@ -53,7 +53,7 @@ export default function WhyUs() {
   return (
     <section 
       id="why-us"
-      className="py-24 sm:py-32 bg-[#F7F3EC] border-b border-[#DDD3C3] relative overflow-hidden select-none"
+      className="py-12 sm:py-16 bg-[#F7F3EC] border-b border-[#DDD3C3] relative overflow-hidden select-none"
     >
       {/* Subtle warm ambient lighting accents */}
       <div 
@@ -66,7 +66,7 @@ export default function WhyUs() {
       />
 
       <Container className="relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
           <SectionHeading
             eyebrow="The Studio Standard"
             title="Why Choose AR Interiors"

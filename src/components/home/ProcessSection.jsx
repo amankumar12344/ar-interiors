@@ -6,7 +6,7 @@ import { studioProcess } from '../../data/process';
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-24 sm:py-32 bg-cream/30 border-b border-taupe/15">
+    <section id="process" className="py-12 sm:py-16 bg-cream/30 border-b border-taupe/15">
       <Container>
         <SectionHeading
           eyebrow="Methodology"
@@ -14,7 +14,7 @@ export default function ProcessSection() {
           subtitle="A structured, predictable journey transforming raw architectural volume into effortless turnkey luxury."
         />
 
-        <div className="mt-16 space-y-8">
+        <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-6">
           {studioProcess.map((item, index) => (
             <motion.div
               key={item.step}
@@ -22,7 +22,7 @@ export default function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-8 sm:p-10 bg-white/70 border border-taupe/20 transition-all duration-300 hover:bg-white grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+              className="p-5 sm:p-7 bg-white/70 border border-taupe/20 transition-all duration-300 hover:bg-white grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
             >
               <div className="lg:col-span-2 flex items-center gap-4">
                 <span className="font-serif text-4xl sm:text-5xl text-gold-dark font-light">

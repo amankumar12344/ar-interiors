@@ -7,10 +7,10 @@ import { MessageCircle, PhoneCall, Sparkles, MapPin } from 'lucide-react';
 
 export default function ConsultationCTA() {
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#EFE9DF] relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 bg-[#EFE9DF] relative overflow-hidden">
       <Container>
         <div 
-          className="p-8 sm:p-14 lg:p-16 rounded-sm shadow-modal relative overflow-hidden text-white border border-[#BF9C60]/40"
+          className="p-6 sm:p-10 lg:p-12 rounded-sm shadow-modal relative overflow-hidden text-white border border-[#BF9C60]/40"
           style={{
             backgroundColor: '#161412',
             backgroundImage: 'radial-gradient(ellipse at 80% 20%, rgba(191,156,96,0.16) 0%, rgba(22,20,18,0) 70%)'

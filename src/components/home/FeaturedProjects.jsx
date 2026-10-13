@@ -11,10 +11,10 @@ export default function FeaturedProjects() {
   const featured = projectsData.filter((p) => p.isFeatured);
 
   return (
-    <section id="projects" className="py-24 sm:py-32 bg-cream/40 border-b border-taupe/15">
+    <section id="projects" className="py-12 sm:py-16 bg-cream/40 border-b border-taupe/15">
       <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
           <SectionHeading
             eyebrow="Selected Portfolio"
             title="Curated Architectural Works"
@@ -43,7 +43,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Bottom CTA bar */}
-        <div className="mt-16 pt-8 border-t border-taupe/20 text-center">
+        <div className="mt-8 pt-6 border-t border-taupe/20 text-center">
           <Button to="/projects" variant="secondary" size="md" icon>
             View Complete Studio Archives ({projectsData.length} Projects)
           </Button>

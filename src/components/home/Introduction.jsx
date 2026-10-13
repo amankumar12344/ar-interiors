@@ -24,7 +24,7 @@ export default function Introduction() {
     }
   };
   return (
-    <section id="about" className="py-12 sm:py-24 bg-[#F3EFE7] border-b border-[#DDD3C3] relative overflow-hidden">
+    <section id="about" className="py-10 sm:py-16 bg-[#F3EFE7] border-b border-[#DDD3C3] relative overflow-hidden">
       {/* Subtle architectural grid pattern background */}
       <div 
         className="absolute inset-0 opacity-[0.035] pointer-events-none" 

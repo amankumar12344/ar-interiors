@@ -6,7 +6,7 @@ import Container from '../common/Container';
 
 export default function ProjectShowcase() {
   return (
-    <section className="py-20 sm:py-28 bg-ivory border-b border-taupe/15">
+    <section className="py-10 sm:py-16 bg-ivory border-b border-taupe/15">
       <Container>
         <div className="group overflow-hidden rounded-sm border border-taupe/20 bg-white shadow-elevated">
           {/* Completely Clean Image */}

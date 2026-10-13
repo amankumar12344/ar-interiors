@@ -45,7 +45,6 @@ export const projectsData = [
     gallery: [
       "/gallery/360-construction-villa-completed.jpg",
       "/gallery/360-construction-villa-in-progress.jpg",
-      "/gallery/360-vr-master-bedroom-suite.jpg",
       "/gallery/site-execution-marble-woodwork.jpg"
     ],
     beforeImage: "/gallery/360-construction-villa-in-progress.jpg",
@@ -109,7 +108,6 @@ export const projectsData = [
     gallery: [
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85"
     ],
     beforeImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
@@ -229,13 +227,12 @@ export const projectsData = [
     year: "2024",
     area: "1,200 sq.ft",
     completionTime: "2 Months",
-    coverImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
+    coverImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
       "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85"
     ],
     beforeImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
-    afterImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85",
+    afterImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85",
     subtitle: "A 4.2-meter continuous Dekton waterfall island with concealed pocket breakfast station",
     overview: "This showpiece kitchen merges professional induction cooking gear with handcrafted reeded glass cabinetry and motorized Blum servo-drive drawers.",
     clientBrief: "The client wanted a clean entertaining kitchen open to the dining salon, complemented by a concealed heavy-prep wet kitchen.",

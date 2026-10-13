@@ -8,7 +8,7 @@ import { ShieldCheck, Compass, Sparkles } from 'lucide-react';
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 sm:py-32 bg-[#EFE9DF] border-b border-[#DDD3C3] relative">
+    <section id="services" className="py-12 sm:py-16 bg-[#EFE9DF] border-b border-[#DDD3C3] relative">
       <Container>
         <SectionHeading
           eyebrow="Studio Disciplines"
@@ -18,7 +18,7 @@ export default function ServicesSection() {
         />
 
         {/* Equalized 3-Column Architectural Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-10 items-stretch">
           {serviceCategories.map((service, idx) => (
             <motion.div
               key={service.id}
@@ -34,7 +34,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom Studio Capability Highlight */}
-        <div className="mt-14 p-6 sm:p-8 bg-[#E6DFD3] border border-[#DDD3C3] rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="mt-8 p-5 sm:p-6 bg-[#E6DFD3] border border-[#DDD3C3] rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-[#BF9C60]/20 border border-[#BF9C60] flex items-center justify-center shrink-0 text-[#96743A]">
               <Sparkles className="w-5 h-5" />

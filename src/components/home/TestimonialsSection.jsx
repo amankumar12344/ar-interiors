@@ -18,14 +18,14 @@ export default function TestimonialsSection() {
   const current = testimonialsData[currentIndex];
 
   return (
-    <section className="py-24 sm:py-32 bg-cream/40 border-b border-taupe/15">
+    <section className="py-12 sm:py-16 bg-cream/40 border-b border-taupe/15">
       <Container>
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-ivory border border-taupe/30 text-gold-dark mb-8">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-ivory border border-taupe/30 text-gold-dark mb-4">
             <Quote className="w-5 h-5" />
           </div>
 
-          <div className="min-h-[200px] flex items-center justify-center">
+          <div className="min-h-[140px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}

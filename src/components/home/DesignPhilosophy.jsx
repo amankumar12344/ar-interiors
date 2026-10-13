@@ -33,7 +33,7 @@ export default function DesignPhilosophy() {
 
   return (
     <section 
-      className="py-24 sm:py-36 text-white relative overflow-hidden border-y border-[#BF9C60]/30 select-none"
+      className="py-12 sm:py-18 text-white relative overflow-hidden border-y border-[#BF9C60]/30 select-none"
       style={{
         backgroundColor: '#13110F',
         backgroundImage: 'radial-gradient(ellipse at 50% 10%, rgba(191,156,96,0.12) 0%, rgba(19,17,15,0) 70%)'

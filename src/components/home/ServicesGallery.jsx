@@ -57,23 +57,6 @@ export const GALLERY_SERVICES = [
     materials: ["Statuario Italian Marble", "American Walnut Fluting", "Brushed Brass Railings", "Boucle & Velvet Upholstery"]
   },
   {
-    id: "master-bedroom-sanctuary",
-    category: "Bedroom Suites",
-    categoryKey: "bedroom",
-    title: "Master Bedroom Sanctuary & Glass Walk-in",
-    subtitle: "Curved cove ceiling, integrated glass wardrobe & ensuite spa bath",
-    image: "/gallery/360-vr-master-bedroom-suite.jpg",
-    badge: "BESPOKE SUITE",
-    description: "An ultra-luxury master bedroom suite showcasing an architectural floating cove ceiling, bespoke fluted leather headboard, transparent floor-to-ceiling tinted glass walk-in wardrobe, and open ensuite soaking tub.",
-    features: [
-      "Architectural Curved Cove Ceiling with Hidden Ambient Glow",
-      "Integrated Tinted-Glass Walk-in Wardrobe with Warm Sensor Lights",
-      "Freestanding Acrylic Bathtub with Floor-Mounted Brushed Fixture",
-      "Herringbone Smoked Oak Hardwood Flooring"
-    ],
-    materials: ["Chevron Smoked Oak", "Fluted Cognac Leather", "Smoked Tempered Glass", "Calacatta Gold Marble"]
-  },
-  {
     id: "contemporary-living-pavilion",
     category: "Living & Dining",
     categoryKey: "living",
@@ -176,23 +159,6 @@ export const GALLERY_SERVICES = [
     materials: ["Dholpur Sandstone", "Structural Steel", "Low-E Glazing", "Weatherproof Louvers"]
   },
   {
-    id: "modular-kitchen",
-    category: "Modular Kitchens",
-    categoryKey: "kitchen",
-    title: "Bespoke Modular Kitchens & Islands",
-    subtitle: "Precision engineering tailored for modern Indian culinary habits",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
-    badge: "MODULAR KITCHEN",
-    description: "Precision-engineered kitchens that marry heavy-duty durability with showroom elegance. We use marine-grade waterproof plywood (BWP/BWR), stain-proof quartz countertops, motorized corner carousels, and premium German hardware.",
-    features: [
-      "100% Waterproof Marine Plywood (IS 710 Grade)",
-      "German Soft-Close Systems (Blum & Hafele Certified)",
-      "Waterfall Quartz Island with Integrated Breakfast Bar",
-      "Motorized Pull-out Pantry Towers & Spice Organizing Pullouts"
-    ],
-    materials: ["Calacatta Quartz", "Cashmere Matte Acrylic", "Champagne Gold Trims", "Tinted Glass"]
-  },
-  {
     id: "commercial-office",
     category: "Commercial Workplaces",
     categoryKey: "commercial",
@@ -271,7 +237,6 @@ export default function ServicesGallery() {
     { key: 'living', label: 'Living & Dining' },
     { key: 'bedroom', label: 'Bedroom Suites' },
     { key: 'architecture', label: 'Architecture & Villas' },
-    { key: 'kitchen', label: 'Modular Kitchens' },
     { key: 'commercial', label: 'Commercial Offices' },
     { key: 'pooja', label: 'Pooja Sanctums' },
     { key: 'construction', label: 'On-Site Civil & Fit-Out' }
@@ -299,13 +264,13 @@ export default function ServicesGallery() {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-[#FAF7F2] relative overflow-hidden border-b border-taupe/20" id="gallery">
+    <section className="py-12 sm:py-16 bg-[#FAF7F2] relative overflow-hidden border-b border-taupe/20" id="gallery">
       {/* Top accent divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <Container>
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/15 text-gold-dark rounded-full text-xs font-semibold tracking-architectural uppercase mb-3 border border-gold/30">
             <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
             <span>FULL ARCHITECTURAL & INTERIOR CAPABILITIES</span>
@@ -319,7 +284,7 @@ export default function ServicesGallery() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-0 sm:flex-wrap sm:justify-center no-scrollbar mb-10 sm:mb-14 px-1 sm:px-0">
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-0 sm:flex-wrap sm:justify-center no-scrollbar mb-6 sm:mb-8 px-1 sm:px-0">
           {filterTabs.map(tab => (
             <button
               key={tab.key}
@@ -336,7 +301,7 @@ export default function ServicesGallery() {
         </div>
 
         {/* Services Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {filteredServices.map((item) => (
             <div
               key={item.id}

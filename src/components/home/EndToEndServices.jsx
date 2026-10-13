@@ -124,7 +124,7 @@ const CONSTRUCTION_SERVICES = [
 
 export default function EndToEndServices() {
   return (
-    <div className="bg-[#FAF7F2] py-20 sm:py-28 space-y-24 sm:space-y-32 border-b border-taupe/20 relative">
+    <div className="bg-[#FAF7F2] py-10 sm:py-14 space-y-12 sm:space-y-16 border-b border-taupe/20 relative">
       {/* Top accent divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
@@ -134,7 +134,7 @@ export default function EndToEndServices() {
       <section id="home-interior" className="scroll-mt-24">
         <Container>
           {/* Section Header with AR Interiors signature styling */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/15 text-gold-dark rounded-full text-xs font-semibold tracking-architectural uppercase mb-3 border border-gold/30">
               <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
               <span>HOME INTERIOR DESIGN IN NOIDA</span>
@@ -158,7 +158,7 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px] relative hover:z-10"
+                  className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[96px] sm:min-h-[110px] relative hover:z-10"
                 >
                   <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
@@ -172,7 +172,7 @@ export default function EndToEndServices() {
           </div>
 
           {/* Planning your home interior? CTA Box */}
-          <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto px-4">
+          <div className="mt-8 sm:mt-10 text-center max-w-2xl mx-auto px-4">
             <h3 className="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
               Planning your home interior?
             </h3>
@@ -198,7 +198,7 @@ export default function EndToEndServices() {
       <section id="home-construction" className="scroll-mt-24 pt-8 sm:pt-12 border-t border-taupe/20">
         <Container>
           {/* Section Header with AR Interiors signature styling */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/15 text-gold-dark rounded-full text-xs font-semibold tracking-architectural uppercase mb-3 border border-gold/30">
               <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
               <span>HOUSE CONSTRUCTION SERVICES IN NOIDA</span>
@@ -222,7 +222,7 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px] relative hover:z-10"
+                  className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[96px] sm:min-h-[110px] relative hover:z-10"
                 >
                   <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
@@ -236,7 +236,7 @@ export default function EndToEndServices() {
           </div>
 
           {/* Planning to build your home? CTA Box */}
-          <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto px-4">
+          <div className="mt-8 sm:mt-10 text-center max-w-2xl mx-auto px-4">
             <h3 className="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
               Planning to build your home?
             </h3>
