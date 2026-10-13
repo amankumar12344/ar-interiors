@@ -208,23 +208,6 @@ export const GALLERY_SERVICES = [
       "Concealed Crockery Units with Soft Push-to-Open Hardware"
     ],
     materials: ["Quartzite Top", "Smoked Oak Wood", "Fluted Glass", "Champagne Brass"]
-  },
-  {
-    id: "balcony-deck",
-    category: "Outdoor Verandas",
-    categoryKey: "outdoor",
-    title: "Balcony Retreats & Green Verandas",
-    subtitle: "Weatherproof urban sanctuaries connecting indoor living to nature",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
-    badge: "OUTDOOR VERANDA",
-    description: "Transform apartment balconies into lush, serene extensions of your home. Incorporating composite wooden decking, vertical biophilic green walls, louvered sunshading, and weatherproof warm outdoor spotlights.",
-    features: [
-      "UV & Weather-Resistant Composite Deck Flooring",
-      "Automated Drip-Irrigation Vertical Green Walls",
-      "Custom Outdoor Daybeds & Weatherproof Joinery",
-      "Warm Architectural Spotlights & Ambient Lanterns"
-    ],
-    materials: ["Composite Teak Decking", "Vertical Living Greens", "Powder-Coated Aluminum", "Natural Jute"]
   }
 ];
 
