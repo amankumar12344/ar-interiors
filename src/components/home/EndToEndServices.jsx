@@ -147,7 +147,7 @@ export default function EndToEndServices() {
             </p>
           </div>
 
-          {/* 15 Interactive Cards Grid (Hover-only cards, NO redirection on click) */}
+          {/* 15 Interactive Cards Grid (Zoom In + Dynamic Brand Color Transformation on Hover) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
             {INTERIOR_SERVICES.map((item, index) => {
               const IconComponent = item.icon;
@@ -158,12 +158,12 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/20 shadow-subtle hover:shadow-elevated hover:-translate-y-1.5 hover:border-gold transition-all duration-300 flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px]"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px] relative hover:z-10"
                 >
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-dark group-hover:scale-110 transition-all duration-300">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-charcoal/85 mt-3 group-hover:text-charcoal transition-colors leading-tight">
+                  <span className="text-xs sm:text-sm font-medium text-charcoal/90 mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
                     {item.label}
                   </span>
                 </motion.div>
@@ -211,7 +211,7 @@ export default function EndToEndServices() {
             </p>
           </div>
 
-          {/* 15 Interactive Cards Grid (Hover-only cards, NO redirection on click) */}
+          {/* 15 Interactive Cards Grid (Zoom In + Dynamic Brand Color Transformation on Hover) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
             {CONSTRUCTION_SERVICES.map((item, index) => {
               const IconComponent = item.icon;
@@ -222,12 +222,12 @@ export default function EndToEndServices() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/20 shadow-subtle hover:shadow-elevated hover:-translate-y-1.5 hover:border-gold transition-all duration-300 flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px]"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/25 shadow-subtle hover:shadow-[0_16px_36px_-6px_rgba(31,29,26,0.35)] hover:scale-105 hover:-translate-y-2 hover:bg-charcoal hover:border-gold transition-all duration-300 ease-out flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px] relative hover:z-10"
                 >
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-dark group-hover:scale-110 transition-all duration-300">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-light group-hover:scale-115 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-charcoal/85 mt-3 group-hover:text-charcoal transition-colors leading-tight">
+                  <span className="text-xs sm:text-sm font-medium text-charcoal/90 mt-3 group-hover:text-white transition-colors duration-300 leading-tight">
                     {item.label}
                   </span>
                 </motion.div>
