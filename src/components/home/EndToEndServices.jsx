@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 import {
   BedDouble,
@@ -9,7 +8,6 @@ import {
   Tv,
   Utensils,
   Bath,
-  Layers,
   PaintRoller,
   Plug,
   Handshake,
@@ -24,11 +22,11 @@ import {
   Paintbrush,
   ClipboardCheck,
   CalendarDays,
-  Flame,
+  Sparkles,
   ArrowRight
 } from 'lucide-react';
 
-// Custom icons to match the screenshot aesthetics cleanly
+// Custom minimalist architectural icons
 const KitchenIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M3 9h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
@@ -126,66 +124,69 @@ const CONSTRUCTION_SERVICES = [
 
 export default function EndToEndServices() {
   return (
-    <div className="bg-[#FAF8F5] py-20 sm:py-28 space-y-24 sm:space-y-32">
+    <div className="bg-[#FAF7F2] py-20 sm:py-28 space-y-24 sm:space-y-32 border-b border-taupe/20 relative">
+      {/* Top accent divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
       {/* ========================================================= */}
       {/* FEATURE 1: END-TO-END HOME INTERIOR                       */}
       {/* ========================================================= */}
       <section id="home-interior" className="scroll-mt-24">
         <Container>
-          {/* Section Header */}
+          {/* Section Header with AR Interiors signature styling */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <span className="text-[#E11D48] tracking-widest text-xs sm:text-sm font-semibold uppercase mb-3 inline-block">
-              HOME INTERIOR DESIGN IN NOIDA
-            </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#111827] tracking-tight leading-tight">
-              End-to-End <span className="text-[#E11D48]">Home Interior</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/15 text-gold-dark rounded-full text-xs font-semibold tracking-architectural uppercase mb-3 border border-gold/30">
+              <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+              <span>HOME INTERIOR DESIGN IN NOIDA</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-charcoal font-normal tracking-tight leading-[1.15]">
+              End-to-End <span className="italic text-gold-dark font-normal">Home Interior</span>
             </h2>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-[#4B5563] font-light leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-charcoal/75 font-light leading-relaxed">
               We handle everything from conceptualization to final handover, ensuring a seamless experience.
             </p>
           </div>
 
-          {/* 15 Interactive Cards Grid (5 columns on desktop, 3 on tablet, 2 on mobile) */}
+          {/* 15 Interactive Cards Grid (Hover-only cards, NO redirection on click) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
             {INTERIOR_SERVICES.map((item, index) => {
               const IconComponent = item.icon;
               return (
-                <motion.a
-                  href="/contact"
+                <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-2xl p-4 sm:p-5 lg:p-6 border border-[#EBE6DF] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-[#E11D48]/40 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer group min-h-[110px] sm:min-h-[125px]"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/20 shadow-subtle hover:shadow-elevated hover:-translate-y-1.5 hover:border-gold transition-all duration-300 flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px]"
                 >
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#4B5563] group-hover:text-[#E11D48] group-hover:scale-110 transition-all duration-300">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-dark group-hover:scale-110 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-[#1F2937] mt-3 group-hover:text-[#E11D48] transition-colors leading-tight">
+                  <span className="text-xs sm:text-sm font-medium text-charcoal/85 mt-3 group-hover:text-charcoal transition-colors leading-tight">
                     {item.label}
                   </span>
-                </motion.a>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Planning your home interior? CTA Box */}
           <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto px-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
               Planning your home interior?
             </h3>
-            <p className="mt-2 text-sm sm:text-base text-[#6B7280] font-light">
+            <p className="mt-2 text-sm sm:text-base text-charcoal/70 font-light">
               Get expert consultation for interior with AR Interiors & Architect Designer Studio
             </p>
             <div className="mt-6">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#111827] text-white px-8 sm:px-10 py-3.5 rounded-full text-sm font-medium hover:bg-[#E11D48] hover:shadow-lg hover:shadow-[#E11D48]/25 transition-all duration-300 group"
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 bg-charcoal text-white hover:bg-gold-dark hover:text-white px-8 sm:px-10 py-3.5 rounded-full text-xs uppercase tracking-architectural font-medium shadow-subtle hover:shadow-elevated transition-all duration-300 group cursor-pointer"
               >
                 <span>Start Your Home Interior</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </Container>
@@ -194,62 +195,62 @@ export default function EndToEndServices() {
       {/* ========================================================= */}
       {/* FEATURE 2: END-TO-END HOME CONSTRUCTION                   */}
       {/* ========================================================= */}
-      <section id="home-construction" className="scroll-mt-24 pt-6 sm:pt-8 border-t border-[#EBE6DF]/70">
+      <section id="home-construction" className="scroll-mt-24 pt-8 sm:pt-12 border-t border-taupe/20">
         <Container>
-          {/* Section Header */}
+          {/* Section Header with AR Interiors signature styling */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <span className="text-[#E11D48] tracking-widest text-xs sm:text-sm font-semibold uppercase mb-3 inline-block">
-              HOUSE CONSTRUCTION SERVICES IN NOIDA
-            </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#111827] tracking-tight leading-tight">
-              End-to-End <span className="text-[#E11D48]">Home Construction</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-gold/15 text-gold-dark rounded-full text-xs font-semibold tracking-architectural uppercase mb-3 border border-gold/30">
+              <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+              <span>HOUSE CONSTRUCTION SERVICES IN NOIDA</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-charcoal font-normal tracking-tight leading-[1.15]">
+              End-to-End <span className="italic text-gold-dark font-normal">Home Construction</span>
             </h2>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-[#4B5563] font-light leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-charcoal/75 font-light leading-relaxed">
               From foundation to finishing — we build your dream home with quality, transparency and precision.
             </p>
           </div>
 
-          {/* 15 Interactive Cards Grid (5 columns on desktop, 3 on tablet, 2 on mobile) */}
+          {/* 15 Interactive Cards Grid (Hover-only cards, NO redirection on click) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
             {CONSTRUCTION_SERVICES.map((item, index) => {
               const IconComponent = item.icon;
               return (
-                <motion.a
-                  href="/contact"
+                <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.025 }}
-                  className="bg-white rounded-2xl p-4 sm:p-5 lg:p-6 border border-[#EBE6DF] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-[#E11D48]/40 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer group min-h-[110px] sm:min-h-[125px]"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-taupe/20 shadow-subtle hover:shadow-elevated hover:-translate-y-1.5 hover:border-gold transition-all duration-300 flex flex-col items-center justify-center text-center cursor-default group min-h-[110px] sm:min-h-[125px]"
                 >
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#4B5563] group-hover:text-[#E11D48] group-hover:scale-110 transition-all duration-300">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-charcoal/70 group-hover:text-gold-dark group-hover:scale-110 transition-all duration-300">
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-[#1F2937] mt-3 group-hover:text-[#E11D48] transition-colors leading-tight">
+                  <span className="text-xs sm:text-sm font-medium text-charcoal/85 mt-3 group-hover:text-charcoal transition-colors leading-tight">
                     {item.label}
                   </span>
-                </motion.a>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Planning to build your home? CTA Box */}
           <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto px-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
               Planning to build your home?
             </h3>
-            <p className="mt-2 text-sm sm:text-base text-[#6B7280] font-light">
+            <p className="mt-2 text-sm sm:text-base text-charcoal/70 font-light">
               Get expert consultation for construction with AR Interiors & Architect Designer Studio
             </p>
             <div className="mt-6">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#111827] text-white px-8 sm:px-10 py-3.5 rounded-full text-sm font-medium hover:bg-[#E11D48] hover:shadow-lg hover:shadow-[#E11D48]/25 transition-all duration-300 group"
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 bg-charcoal text-white hover:bg-gold-dark hover:text-white px-8 sm:px-10 py-3.5 rounded-full text-xs uppercase tracking-architectural font-medium shadow-subtle hover:shadow-elevated transition-all duration-300 group cursor-pointer"
               >
                 <span>Start Your Home Construction</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </Container>
