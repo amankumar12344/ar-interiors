@@ -441,10 +441,12 @@ export default function ContactPage() {
                       {...register('budget')}
                       className="w-full px-4 py-3 bg-ivory/60 border border-taupe/30 text-charcoal text-sm focus:outline-none focus:border-charcoal transition-colors cursor-pointer"
                     >
-                      <option value="₹25 Lakhs – ₹50 Lakhs">₹25L – ₹50L</option>
-                      <option value="₹50 Lakhs – ₹1 Crore">₹50L – ₹1 Cr</option>
-                      <option value="₹1 Crore – ₹3 Crores">₹1 Cr – ₹3 Cr</option>
-                      <option value="₹3 Crores+">₹3 Cr+</option>
+                      <option value="₹5 Lakhs – ₹10 Lakhs">₹5L – ₹10L (Affordable Premium)</option>
+                      <option value="₹10 Lakhs – ₹25 Lakhs">₹10L – ₹25L (Standard Luxury)</option>
+                      <option value="₹25 Lakhs – ₹50 Lakhs">₹25L – ₹50L (High-End Turnkey)</option>
+                      <option value="₹50 Lakhs – ₹1 Crore">₹50L – ₹1 Cr (Ultra Luxury)</option>
+                      <option value="₹1 Crore – ₹3 Crores">₹1 Cr – ₹3 Cr (Bespoke Mansions)</option>
+                      <option value="₹3 Crores+">₹3 Cr+ (Palatial Estate)</option>
                     </select>
                   </div>
                 </div>

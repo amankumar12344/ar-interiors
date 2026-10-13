@@ -4,6 +4,7 @@ import Container from '../common/Container';
 import Button from '../common/Button';
 import { CONTACT_INFO } from '../../data/contactInfo';
 import { contactService } from '../../services/contactService';
+import { cn } from '../../utils/cn';
 import {
   Sparkles,
   Phone,
@@ -14,12 +15,51 @@ import {
   Send,
   Building2,
   ShieldCheck,
-  Award
+  Award,
+  Calendar,
+  Zap,
+  Clock3,
+  CalendarDays
 } from 'lucide-react';
 
 export default function ConsultationCTA() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
+  const [selectedTimeline, setSelectedTimeline] = useState('Immediate');
+  const [targetDate, setTargetDate] = useState('');
+
+  const todayDateString = new Date().toISOString().split('T')[0];
+
+  const timelineOptions = [
+    {
+      id: 'immediate',
+      label: 'Immediate',
+      subtext: 'Within 7 Days',
+      badge: 'High Priority',
+      icon: Zap
+    },
+    {
+      id: '15-days',
+      label: 'Within 15 Days',
+      subtext: 'Upcoming Handover',
+      badge: null,
+      icon: Clock3
+    },
+    {
+      id: '1-month',
+      label: 'Within 1 Month',
+      subtext: 'Next 30 Days',
+      badge: null,
+      icon: Calendar
+    },
+    {
+      id: '1-3-months',
+      label: '1 – 3 Months',
+      subtext: 'Under Construction',
+      badge: null,
+      icon: Clock
+    }
+  ];
 
   const {
     register,
@@ -29,7 +69,8 @@ export default function ConsultationCTA() {
   } = useForm({
     defaultValues: {
       serviceType: 'Complete Home Interior (Turnkey)',
-      propertyType: '3 BHK Apartment'
+      propertyType: '3 BHK Apartment',
+      budget: '₹5 Lakhs – ₹10 Lakhs'
     }
   });
 
@@ -38,9 +79,13 @@ export default function ConsultationCTA() {
       const payload = {
         name: data.name,
         phone: data.phone,
+        email: data.email || 'Not provided',
         location: data.location,
         projectType: data.serviceType,
         propertyType: data.propertyType,
+        budget: data.budget,
+        timeline: selectedTimeline,
+        targetDate: targetDate || 'Flexible / As per architect visit',
         message: data.message || 'Homepage Consultation Request'
       };
 
@@ -48,6 +93,8 @@ export default function ConsultationCTA() {
       setSubmittedData(payload);
       setSubmitted(true);
       reset();
+      setSelectedTimeline('Immediate');
+      setTargetDate('');
     } catch (err) {
       console.error('Error submitting form:', err);
     }
@@ -67,7 +114,7 @@ export default function ConsultationCTA() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#BF9C60]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#DFBA73]/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Studio Information & Credibility */}
             <div className="lg:col-span-5 flex flex-col justify-between">
@@ -83,7 +130,7 @@ export default function ConsultationCTA() {
                 </h2>
 
                 <p className="mt-4 text-sm sm:text-base text-[#D5CDC2] font-light leading-relaxed">
-                  Book a free on-site consultation visit with our principal interior architects. We deliver 100% customized luxury designs, transparent BOQ estimates, and turnkey craftsmanship across Noida & Delhi NCR.
+                  Book a complimentary on-site measurement & consultation visit with our senior architects. Get 100% customized luxury designs, itemized BOQ estimates, and turnkey craftsmanship starting from ₹5 Lakhs across Noida & Delhi NCR.
                 </p>
 
                 {/* Trust Badges */}
@@ -136,9 +183,9 @@ export default function ConsultationCTA() {
               </div>
             </div>
 
-            {/* Right Column: The Fillable Interactive Consultation Form */}
+            {/* Right Column: Full Interactive Consultation Form with Price Range & Calendar */}
             <div className="lg:col-span-7">
-              <div className="bg-[#1A1815]/90 backdrop-blur-md border border-[#BF9C60]/50 rounded-sm p-6 sm:p-8 shadow-2xl relative">
+              <div className="bg-[#1A1815]/95 backdrop-blur-md border border-[#BF9C60]/50 rounded-sm p-6 sm:p-8 shadow-2xl relative">
                 
                 {submitted ? (
                   /* Success Confirmation Screen */
@@ -150,11 +197,16 @@ export default function ConsultationCTA() {
                       Thank You, {submittedData?.name || 'Valued Client'}!
                     </h3>
                     <p className="text-sm text-[#D5CDC2] max-w-md mx-auto">
-                      Your consultation request has been received. Our principal architect will review your project details and reach out to you within 24 hours.
+                      Your consultation request for <strong>{submittedData?.propertyType}</strong> ({submittedData?.budget}) has been received. Our principal architect will connect with you within 24 hours.
                     </p>
+                    {submittedData?.targetDate && submittedData?.targetDate !== 'Flexible / As per architect visit' && (
+                      <p className="text-xs text-[#DFBA73] bg-[#BF9C60]/15 py-1.5 px-3 rounded-xs inline-block">
+                        📅 Preferred Site Visit Date: {submittedData.targetDate} ({submittedData.timeline})
+                      </p>
+                    )}
                     <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
-                        href={CONTACT_INFO.getWhatsappUrl(`Hi AR Interiors, I just submitted an inquiry for my ${submittedData?.propertyType || 'property'} in ${submittedData?.location || 'Noida'}. Please connect with me.`)}
+                        href={CONTACT_INFO.getWhatsappUrl(`Hi AR Interiors, I just requested a site consultation for my ${submittedData?.propertyType || 'property'} in ${submittedData?.location || 'Noida'} with budget ${submittedData?.budget || '₹5L - ₹10L'}. Please connect with me.`)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all"
@@ -182,12 +234,12 @@ export default function ConsultationCTA() {
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
                       </h3>
                       <p className="text-xs text-[#BF9C60] font-sans mt-0.5">
-                        Fill in your details below. Fields marked with * are required.
+                        Fill in your space details below. Fields marked with * are required.
                       </p>
                     </div>
 
+                    {/* Row 1: Name and Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Name */}
                       <div>
                         <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
                           Full Name *
@@ -203,7 +255,6 @@ export default function ConsultationCTA() {
                         )}
                       </div>
 
-                      {/* Phone */}
                       <div>
                         <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
                           Phone Number *
@@ -226,8 +277,8 @@ export default function ConsultationCTA() {
                       </div>
                     </div>
 
+                    {/* Row 2: Location and Service Type */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Location */}
                       <div>
                         <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
                           Project Location *
@@ -243,7 +294,6 @@ export default function ConsultationCTA() {
                         )}
                       </div>
 
-                      {/* Service Type */}
                       <div>
                         <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
                           Service Required *
@@ -262,23 +312,117 @@ export default function ConsultationCTA() {
                       </div>
                     </div>
 
-                    {/* Property Type */}
-                    <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
-                        Property Configuration
+                    {/* Row 3: Property Type and PRICE RANGE (Starting from 5 Lacs) */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-1">
+                          Property Configuration
+                        </label>
+                        <select
+                          {...register('propertyType')}
+                          className="w-full px-3.5 py-2.5 bg-[#1F1D1A] border border-white/20 rounded-sm text-white text-xs sm:text-sm focus:outline-none focus:border-[#BF9C60] focus:ring-1 focus:ring-[#BF9C60] transition-all cursor-pointer"
+                        >
+                          <option value="2 BHK Apartment">2 BHK Apartment</option>
+                          <option value="3 BHK Apartment">3 BHK Apartment</option>
+                          <option value="4 BHK / 5 BHK Luxury Penthouse">4 BHK / 5 BHK Luxury Penthouse</option>
+                          <option value="Independent Villa / Bungalow / Kothi">Independent Villa / Bungalow / Kothi</option>
+                          <option value="Builder Floor">Builder Floor</option>
+                          <option value="Raw Plot / New Construction">Raw Plot / New Construction</option>
+                          <option value="Commercial / Retail Studio">Commercial / Retail Studio</option>
+                        </select>
+                      </div>
+
+                      {/* Price Range starting from 5 Lacs */}
+                      <div>
+                        <label className="block text-[11px] uppercase tracking-wider text-[#DFBA73] font-medium mb-1 flex items-center justify-between">
+                          <span>Approx. Budget / Price Range *</span>
+                          <span className="text-[10px] text-[#BF9C60] font-sans">Starting 5 Lacs</span>
+                        </label>
+                        <select
+                          {...register('budget')}
+                          className="w-full px-3.5 py-2.5 bg-[#1F1D1A] border border-[#BF9C60]/60 rounded-sm text-white text-xs sm:text-sm focus:outline-none focus:border-[#DFBA73] focus:ring-1 focus:ring-[#DFBA73] transition-all cursor-pointer font-medium"
+                        >
+                          <option value="₹5 Lakhs – ₹10 Lakhs">₹5 Lakhs – ₹10 Lakhs (Affordable Premium)</option>
+                          <option value="₹10 Lakhs – ₹25 Lakhs">₹10 Lakhs – ₹25 Lakhs (Standard Luxury)</option>
+                          <option value="₹25 Lakhs – ₹50 Lakhs">₹25 Lakhs – ₹50 Lakhs (High-End Turnkey)</option>
+                          <option value="₹50 Lakhs – ₹1 Crore">₹50 Lakhs – ₹1 Crore (Ultra Luxury)</option>
+                          <option value="₹1 Crore – ₹3 Crores">₹1 Crore – ₹3 Crores (Bespoke Mansions)</option>
+                          <option value="₹3 Crores+">₹3 Crores+ (Palatial Estate)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Row 4: Timeline Selection Pills */}
+                    <div className="pt-1">
+                      <label className="block text-[11px] uppercase tracking-wider text-[#D5CDC2] font-medium mb-2">
+                        When Would You Like To Start? (Timeline)
                       </label>
-                      <select
-                        {...register('propertyType')}
-                        className="w-full px-3.5 py-2.5 bg-[#1F1D1A] border border-white/20 rounded-sm text-white text-xs sm:text-sm focus:outline-none focus:border-[#BF9C60] focus:ring-1 focus:ring-[#BF9C60] transition-all cursor-pointer"
-                      >
-                        <option value="2 BHK Apartment">2 BHK Apartment</option>
-                        <option value="3 BHK Apartment">3 BHK Apartment</option>
-                        <option value="4 BHK / 5 BHK Luxury Penthouse">4 BHK / 5 BHK Luxury Penthouse</option>
-                        <option value="Independent Villa / Bungalow / Kothi">Independent Villa / Bungalow / Kothi</option>
-                        <option value="Builder Floor">Builder Floor</option>
-                        <option value="Raw Plot / New Construction">Raw Plot / New Construction</option>
-                        <option value="Commercial / Retail Studio">Commercial / Retail Studio</option>
-                      </select>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {timelineOptions.map((opt) => {
+                          const isSelected = selectedTimeline === opt.label;
+                          const Icon = opt.icon;
+                          return (
+                            <button
+                              type="button"
+                              key={opt.id}
+                              onClick={() => setSelectedTimeline(opt.label)}
+                              className={cn(
+                                'relative text-left p-2.5 border transition-all duration-200 rounded-sm flex flex-col justify-between cursor-pointer',
+                                isSelected
+                                  ? 'bg-[#BF9C60]/20 border-[#BF9C60] ring-1 ring-[#BF9C60]'
+                                  : 'bg-white/5 border-white/15 hover:border-white/30'
+                              )}
+                            >
+                              <div className="flex items-center justify-between mb-1">
+                                <Icon className={cn('w-3.5 h-3.5', isSelected ? 'text-[#DFBA73]' : 'text-white/60')} />
+                                <span className={cn('w-1.5 h-1.5 rounded-full', isSelected ? 'bg-[#DFBA73]' : 'bg-white/20')} />
+                              </div>
+                              <span className={cn('text-xs font-serif leading-tight', isSelected ? 'text-white font-semibold' : 'text-white/80')}>
+                                {opt.label}
+                              </span>
+                              <span className="text-[10px] text-white/50 mt-0.5">
+                                {opt.subtext}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* CALENDAR FEATURE: Exact Date Selection */}
+                    <div className="p-3 bg-white/5 border border-[#BF9C60]/30 rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-full bg-[#BF9C60]/20 flex items-center justify-center shrink-0">
+                          <CalendarDays className="w-3.5 h-3.5 text-[#DFBA73]" />
+                        </div>
+                        <div>
+                          <span className="text-xs text-white font-medium block leading-tight">
+                            Select Preferred Visit / Possession Date (Optional)
+                          </span>
+                          <span className="text-[10px] text-[#BF9C60] font-sans">
+                            Pick an exact date from the calendar for planned consultation
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 self-start sm:self-auto">
+                        <input
+                          type="date"
+                          min={todayDateString}
+                          value={targetDate}
+                          onChange={(e) => setTargetDate(e.target.value)}
+                          className="px-3 py-1.5 bg-[#1F1D1A] border border-[#BF9C60]/50 text-white text-xs rounded-sm focus:outline-none focus:border-[#DFBA73] font-sans cursor-pointer"
+                        />
+                        {targetDate && (
+                          <button
+                            type="button"
+                            onClick={() => setTargetDate('')}
+                            className="text-[10px] text-red-400 hover:text-red-300 px-1 py-1 cursor-pointer"
+                          >
+                            Clear
+                          </button>
+                        )}
+                      </div>
                     </div>
 
                     {/* Message / Brief */}
