@@ -34,34 +34,69 @@ export default function Navbar() {
       return;
     }
 
-    const sectionIds = ['home', 'about', 'gallery', 'projects', 'services', 'process', 'contact'];
+    // Ordered DOM sections on HomePage and their corresponding navigation IDs
+    const sections = [
+      { id: 'home', navId: 'home' },
+      { id: 'about', navId: 'about' },
+      { id: 'home-interior', navId: 'services' },
+      { id: 'home-construction', navId: 'services' },
+      { id: 'gallery', navId: 'gallery' },
+      { id: 'projects', navId: 'projects' },
+      { id: 'services', navId: 'services' },
+      { id: 'process', navId: 'process' },
+      { id: 'contact', navId: 'contact' },
+    ];
+
+    let ticking = false;
 
     const handleScrollSpy = () => {
-      // Check if user has scrolled near page bottom
-      const scrollPosition = window.scrollY + 260;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
 
-      if (window.scrollY + windowHeight >= documentHeight - 80) {
-        setActiveSection('contact');
-        return;
-      }
-
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const id = sectionIds[i];
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(id);
-            break;
+          // If scrolled near top of page, always mark 'home'
+          if (scrollY < 120) {
+            setActiveSection('home');
+            ticking = false;
+            return;
           }
-        }
+
+          // If scrolled near bottom of page, always mark 'contact'
+          if (scrollY + windowHeight >= documentHeight - 120) {
+            setActiveSection('contact');
+            ticking = false;
+            return;
+          }
+
+          // Trigger offset from top of viewport (below sticky navbar)
+          const threshold = 220;
+
+          // Check from bottom section upward
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const item = sections[i];
+            const el = document.getElementById(item.id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= threshold) {
+                setActiveSection(item.navId);
+                ticking = false;
+                return;
+              }
+            }
+          }
+
+          setActiveSection('home');
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    handleScrollSpy(); // Trigger immediately on mount
+    // Run once on load to sync with initial scroll position
+    handleScrollSpy();
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, [location.pathname]);
 
@@ -76,16 +111,47 @@ export default function Navbar() {
   ];
 
   // Determine if this nav link is currently active
+  // On homepage ('/'), dynamically highlight whichever section the user has scrolled to
+  // On dedicated route pages (e.g., /about, /projects), highlight the matching route
   const isLinkActive = (link) => {
+    if (location.pathname === '/') {
+      return activeSection === link.sectionId;
+    }
     if (link.path === '/') {
-      return location.pathname === '/';
+      return false;
     }
     return location.pathname === link.path || location.pathname.startsWith(link.path + '/');
   };
 
-  // Direct page navigation handler
-  const handleNavLinkClick = () => {
+  // Direct page navigation or smooth scroll handler
+  const handleNavLinkClick = (e, link) => {
     setMobileMenuOpen(false);
+
+    // If on homepage, smoothly scroll to the section
+    if (location.pathname === '/') {
+      if (link.path === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveSection('home');
+        return;
+      }
+
+      const targetId = link.sectionId === 'services'
+        ? (document.getElementById('home-interior') ? 'home-interior' : 'services')
+        : link.sectionId;
+
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        const navHeight = 75;
+        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+        setActiveSection(link.sectionId);
+      }
+    }
   };
 
   return (
@@ -103,7 +169,17 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
               
               {/* Brand Logo Box with User's 3D Luxury Architectural Logo */}
-              <Link to="/" className="group flex items-center gap-3 sm:gap-3.5 text-left shrink-0 whitespace-nowrap">
+              <Link
+                to="/"
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setActiveSection('home');
+                  }
+                }}
+                className="group flex items-center gap-3 sm:gap-3.5 text-left shrink-0 whitespace-nowrap"
+              >
                 <img
                   src="/logo.jpg"
                   alt="AR Interiors Logo"
@@ -201,7 +277,18 @@ export default function Navbar() {
         <div>
           {/* Mobile Drawer Header */}
           <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
-            <div className="flex items-center gap-2.5">
+            <Link
+              to="/"
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setActiveSection('home');
+                }
+              }}
+              className="flex items-center gap-2.5"
+            >
               <img
                 src="/logo.jpg"
                 alt="AR Interiors Logo"
@@ -215,7 +302,7 @@ export default function Navbar() {
                   NOIDA & DELHI NCR
                 </span>
               </div>
-            </div>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-1 text-ivory/60 hover:text-ivory cursor-pointer"
