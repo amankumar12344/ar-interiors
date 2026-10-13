@@ -227,6 +227,18 @@ export default function Navbar() {
 
                 <Link
                   to="/contact"
+                  onClick={(e) => {
+                    if (location.pathname === '/') {
+                      e.preventDefault();
+                      const el = document.getElementById('contact');
+                      if (el) {
+                        const navHeight = 75;
+                        const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                        setActiveSection('contact');
+                      }
+                    }
+                  }}
                   className="hidden sm:inline-flex items-center gap-2.5 px-4.5 py-2.5 lg:px-5 lg:py-2.5 rounded-sm bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B38728] text-charcoal font-sans font-bold text-xs lg:text-[12.5px] tracking-wider uppercase shadow-[0_4px_20px_rgba(212,175,55,0.4)] hover:shadow-[0_4px_28px_rgba(212,175,55,0.6)] hover:brightness-110 active:scale-[0.98] transition-all duration-300 border border-[#ECC06C] shrink-0 whitespace-nowrap group relative"
                 >
                   {/* Blinking Live Green Indicator Dot */}
@@ -359,6 +371,19 @@ export default function Navbar() {
         <div className="pt-6 border-t border-white/10 space-y-4">
           <Link
             to="/contact"
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              if (location.pathname === '/') {
+                e.preventDefault();
+                const el = document.getElementById('contact');
+                if (el) {
+                  const navHeight = 75;
+                  const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                  setActiveSection('contact');
+                }
+              }
+            }}
             className="w-full flex items-center justify-center gap-2.5 py-3 px-4 rounded-sm bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B38728] text-charcoal font-sans font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition-all text-center border border-[#ECC06C]"
           >
             {/* Blinking Live Green Indicator Dot */}
