@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/home/Hero';
 import Introduction from '../components/home/Introduction';
+import EndToEndServices from '../components/home/EndToEndServices';
 import ServicesGallery from '../components/home/ServicesGallery';
 import FeaturedProjects from '../components/home/FeaturedProjects';
 import ServicesSection from '../components/home/ServicesSection';
@@ -17,6 +18,7 @@ export default function HomePage() {
     <main>
       <Hero />
       <Introduction />
+      <EndToEndServices />
       <ServicesGallery />
       <FeaturedProjects />
       <ServicesSection />
