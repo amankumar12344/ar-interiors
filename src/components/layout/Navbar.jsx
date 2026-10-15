@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageSquare, ArrowUpRight, MapPin, Calendar, Sparkles } from 'lucide-react';
 import Container from '../common/Container';
 import Button from '../common/Button';
@@ -9,9 +9,7 @@ import { CONTACT_INFO } from '../../data/contactInfo';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Scroll detection for sticky header compression
   useEffect(() => {
@@ -28,130 +26,34 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location]);
 
-  // Dynamic ScrollSpy for homepage sections
-  useEffect(() => {
-    if (location.pathname !== '/') {
-      return;
-    }
-
-    // Ordered DOM sections on HomePage and their corresponding navigation IDs
-    const sections = [
-      { id: 'home', navId: 'home' },
-      { id: 'about', navId: 'about' },
-      { id: 'home-interior', navId: 'services' },
-      { id: 'home-construction', navId: 'services' },
-      { id: 'gallery', navId: 'gallery' },
-      { id: 'projects', navId: 'projects' },
-      { id: 'services', navId: 'services' },
-      { id: 'process', navId: 'process' },
-      { id: 'contact', navId: 'contact' },
-    ];
-
-    let ticking = false;
-
-    const handleScrollSpy = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const windowHeight = window.innerHeight;
-          const documentHeight = document.documentElement.scrollHeight;
-
-          // If scrolled near top of page, always mark 'home'
-          if (scrollY < 120) {
-            setActiveSection('home');
-            ticking = false;
-            return;
-          }
-
-          // If scrolled near bottom of page, always mark 'contact'
-          if (scrollY + windowHeight >= documentHeight - 120) {
-            setActiveSection('contact');
-            ticking = false;
-            return;
-          }
-
-          // Trigger offset from top of viewport (below sticky navbar)
-          const threshold = 220;
-
-          // Check from bottom section upward
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const item = sections[i];
-            const el = document.getElementById(item.id);
-            if (el) {
-              const rect = el.getBoundingClientRect();
-              if (rect.top <= threshold) {
-                setActiveSection(item.navId);
-                ticking = false;
-                return;
-              }
-            }
-          }
-
-          setActiveSection('home');
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    // Run once on load to sync with initial scroll position
-    handleScrollSpy();
-    return () => window.removeEventListener('scroll', handleScrollSpy);
-  }, [location.pathname]);
-
   const navLinks = [
-    { label: 'Home', path: '/', sectionId: 'home' },
-    { label: 'About', path: '/about', sectionId: 'about' },
-    { label: 'Services', path: '/services', sectionId: 'services' },
-    { label: 'Gallery', path: '/gallery', sectionId: 'gallery' },
-    { label: 'Projects', path: '/projects', sectionId: 'projects' },
-    { label: 'Process', path: '/process', sectionId: 'process' },
-    { label: 'Contact', path: '/contact', sectionId: 'contact' },
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Process', path: '/process' },
+    { label: 'Contact', path: '/contact' },
   ];
 
-  // Determine if this nav link is currently active
-  // On homepage ('/'), dynamically highlight whichever section the user has scrolled to
-  // On dedicated route pages (e.g., /about, /projects), highlight the matching route
+  // Determine if this nav link is currently active based on actual route
   const isLinkActive = (link) => {
-    if (location.pathname === '/') {
-      return activeSection === link.sectionId;
-    }
     if (link.path === '/') {
-      return false;
+      return location.pathname === '/';
     }
     return location.pathname === link.path || location.pathname.startsWith(link.path + '/');
   };
 
-  // Direct page navigation or smooth scroll handler
+  // Direct page navigation handler - opens the full dedicated page
   const handleNavLinkClick = (e, link) => {
     setMobileMenuOpen(false);
 
-    // If on homepage, smoothly scroll to the section
-    if (location.pathname === '/') {
-      if (link.path === '/') {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setActiveSection('home');
-        return;
-      }
-
-      const targetId = link.sectionId === 'services'
-        ? (document.getElementById('home-interior') ? 'home-interior' : 'services')
-        : link.sectionId;
-
-      const element = document.getElementById(targetId);
-      if (element) {
-        e.preventDefault();
-        const navHeight = 75;
-        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth',
-        });
-        setActiveSection(link.sectionId);
-      }
+    // If user is already on homepage and clicks 'Home', smoothly scroll to top
+    if (link.path === '/' && location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    // For all other links (/about, /services, /gallery, etc.), React Router navigates directly to the dedicated page
   };
 
   return (
@@ -227,18 +129,6 @@ export default function Navbar() {
 
                 <Link
                   to="/contact"
-                  onClick={(e) => {
-                    if (location.pathname === '/') {
-                      e.preventDefault();
-                      const el = document.getElementById('contact');
-                      if (el) {
-                        const navHeight = 75;
-                        const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                        setActiveSection('contact');
-                      }
-                    }
-                  }}
                   className="hidden sm:inline-flex items-center gap-2.5 px-4.5 py-2.5 lg:px-5 lg:py-2.5 rounded-sm bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B38728] text-charcoal font-sans font-bold text-xs lg:text-[12.5px] tracking-wider uppercase shadow-[0_4px_20px_rgba(212,175,55,0.4)] hover:shadow-[0_4px_28px_rgba(212,175,55,0.6)] hover:brightness-110 active:scale-[0.98] transition-all duration-300 border border-[#ECC06C] shrink-0 whitespace-nowrap group relative"
                 >
                   {/* Blinking Live Green Indicator Dot */}
@@ -371,19 +261,7 @@ export default function Navbar() {
         <div className="pt-6 border-t border-white/10 space-y-4">
           <Link
             to="/contact"
-            onClick={(e) => {
-              setMobileMenuOpen(false);
-              if (location.pathname === '/') {
-                e.preventDefault();
-                const el = document.getElementById('contact');
-                if (el) {
-                  const navHeight = 75;
-                  const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                  setActiveSection('contact');
-                }
-              }
-            }}
+            onClick={() => setMobileMenuOpen(false)}
             className="w-full flex items-center justify-center gap-2.5 py-3 px-4 rounded-sm bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B38728] text-charcoal font-sans font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition-all text-center border border-[#ECC06C]"
           >
             {/* Blinking Live Green Indicator Dot */}
