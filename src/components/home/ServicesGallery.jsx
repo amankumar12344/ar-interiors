@@ -12,7 +12,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "living",
     title: "Panoramic Penthouse Living Lounge",
     subtitle: "Double-height volume, Italian chandelier & floor-to-ceiling sunset skyline",
-    image: "/gallery/360-vr-penthouse-living.jpg",
+    image: "/spaces/360-vr-penthouse-living.jpg",
     badge: "PENTHOUSE LOUNGE",
     description: "An expansive architectural showcase of a signature luxury penthouse living lounge. Features double-height glass facades, bespoke crystal chandelier, conversational velvet seating layout, and illuminated fluted feature wall.",
     features: [
@@ -29,7 +29,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "architecture",
     title: "Sky Duplex: Turnkey Architecture & Handover",
     subtitle: "Sculptural spiral staircase, Venetian plaster & curated designer furnishings",
-    image: "/gallery/360-construction-duplex-completed.jpg",
+    image: "/spaces/360-construction-duplex-completed.jpg",
     badge: "READY HANDOVER",
     description: "A completed luxury penthouse duplex following turnkey execution. Features hand-applied Venetian plaster walls, recessed magnetic track lights, illuminated spiral staircase, and rich chevron hardwood floors.",
     features: [
@@ -46,7 +46,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "architecture",
     title: "Grand Villa: Double-Height Opulent Living Hall",
     subtitle: "Bookmatched Italian marble, curved staircase & fluted walnut panelling",
-    image: "/gallery/360-construction-villa-completed.jpg",
+    image: "/spaces/360-construction-villa-completed.jpg",
     badge: "VILLA MASTERPIECE",
     description: "A palatial luxury villa architectural fit-out. Features high-gloss bookmatched Italian marble flooring, glass-and-brass curved grand staircase, architectural walnut fluting, and bespoke luxury seating arrangements.",
     features: [
@@ -63,7 +63,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "living",
     title: "Minimalist Linear Living & Media Suite",
     subtitle: "Seamless timber ceiling coves, marble plinth & daylight geometry",
-    image: "/gallery/contemporary-living-pavilion.jpg",
+    image: "/spaces/contemporary-living-pavilion.jpg",
     badge: "ARCHITECTURAL LIVING",
     description: "An expansive, open-format living pavilion designed around uninterrupted sightlines and calibrated natural daylight. Features a floating marble media bench, dual architectural art alcoves, concealed HVAC ceiling detailing, and customized low-slung lounge seating.",
     features: [
@@ -80,7 +80,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "bedroom",
     title: "Biophilic Fluted Timber Master Suite",
     subtitle: "Acoustic vertical louvers, Japanese cherry blossom art & forest vista",
-    image: "/gallery/fluted-timber-master-suite.jpg",
+    image: "/spaces/fluted-timber-master-suite.jpg",
     badge: "SIGNATURE BEDROOM",
     description: "A sanctuary of profound calm and natural tactility. The focal wall showcases full-height vertical timber acoustic louvers integrated with hand-crafted golden branch botanical artwork, ambient orb pendants, and a platform bed facing sweeping panoramic green views.",
     features: [
@@ -97,7 +97,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "living",
     title: "Curated Art & Library Salon",
     subtitle: "Full-height custom walnut shelving, statement abstract art & velvet seating",
-    image: "/gallery/curated-art-library-lounge.jpg",
+    image: "/spaces/curated-art-library-lounge.jpg",
     badge: "BESPOKE LIBRARY",
     description: "An intellectual, artistic salon marrying classical library millwork with vibrant contemporary art. Anchored by a bespoke multi-tier solid walnut bookcase, mid-century lounge chairs, an organic low-slung coffee table, and tailored velvet sofa seating.",
     features: [
@@ -114,7 +114,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "construction",
     title: "Precision Gypsum False Ceiling & Linear Light Channels",
     subtitle: "On-site framing, recessed magnetic channels & laser level alignment",
-    image: "/gallery/site-execution-false-ceiling.jpg",
+    image: "/spaces/site-execution-false-ceiling.jpg",
     badge: "ON-SITE FIT-OUT",
     description: "High-precision ceiling fit-out in an executive apartment. Skilled technicians aligning gypsum framing, magnetic track light channels, and timber ceiling soffits using digital laser alignment.",
     features: [
@@ -131,7 +131,7 @@ export const GALLERY_SERVICES = [
     categoryKey: "construction",
     title: "Turnkey Italian Marble Laying & Wall Millwork Fit-Out",
     subtitle: "Skilled artisans installing bookmatched marble & bespoke timber panelling",
-    image: "/gallery/site-execution-marble-woodwork.jpg",
+    image: "/spaces/site-execution-marble-woodwork.jpg",
     badge: "ON-SITE FIT-OUT",
     description: "Master craftsmen installing large-format bookmatched Italian marble slabs with protective coating, while carpenters erect fluted timber architectural wall paneling with integrated warm cove backlighting.",
     features: [
@@ -248,7 +248,7 @@ export default function ServicesGallery() {
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-[#FAF7F2] relative overflow-hidden border-b border-taupe/20" id="gallery">
+    <section className="py-12 sm:py-16 bg-[#FAF7F2] relative overflow-hidden border-b border-taupe/20">
       {/* Top accent divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 

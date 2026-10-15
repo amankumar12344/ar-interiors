@@ -48,12 +48,11 @@ export default function Navbar() {
   const handleNavLinkClick = (e, link) => {
     setMobileMenuOpen(false);
 
-    // If user is already on homepage and clicks 'Home', smoothly scroll to top
-    if (link.path === '/' && location.pathname === '/') {
+    // If user clicks the link for the page they are already on, smoothly scroll to top of this page
+    if (location.pathname === link.path) {
       e.preventDefault();
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
-    // For all other links (/about, /services, /gallery, etc.), React Router navigates directly to the dedicated page
   };
 
   return (

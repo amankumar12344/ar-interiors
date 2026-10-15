@@ -9,15 +9,15 @@ export const projectsData = [
     year: "2024",
     area: "7,200 sq.ft",
     completionTime: "8 Months",
-    coverImage: "/gallery/360-construction-duplex-completed.jpg",
+    coverImage: "/spaces/360-construction-duplex-completed.jpg",
     gallery: [
-      "/gallery/360-construction-duplex-completed.jpg",
-      "/gallery/360-construction-duplex-in-progress.jpg",
-      "/gallery/360-vr-penthouse-living.jpg",
-      "/gallery/site-execution-false-ceiling.jpg"
+      "/spaces/360-construction-duplex-completed.jpg",
+      "/spaces/360-construction-duplex-in-progress.jpg",
+      "/spaces/360-vr-penthouse-living.jpg",
+      "/spaces/site-execution-false-ceiling.jpg"
     ],
-    beforeImage: "/gallery/360-construction-duplex-in-progress.jpg",
-    afterImage: "/gallery/360-construction-duplex-completed.jpg",
+    beforeImage: "/spaces/360-construction-duplex-in-progress.jpg",
+    afterImage: "/spaces/360-construction-duplex-completed.jpg",
     subtitle: "Complete turnkey transformation documented from structural framing to final architectural handover",
     overview: "An architectural tour-de-force showcasing our end-to-end capabilities from raw drywall framing, MEP conduits, and spiral staircase fabrication to immaculate Venetian plaster and bespoke Italian furnishings.",
     clientBrief: "Deliver a monumentally scaled sky penthouse with complete turnkey accountability from bare shell to final handover.",
@@ -41,14 +41,14 @@ export const projectsData = [
     year: "2024",
     area: "8,500 sq.ft",
     completionTime: "9 Months",
-    coverImage: "/gallery/360-construction-villa-completed.jpg",
+    coverImage: "/spaces/360-construction-villa-completed.jpg",
     gallery: [
-      "/gallery/360-construction-villa-completed.jpg",
-      "/gallery/360-construction-villa-in-progress.jpg",
-      "/gallery/site-execution-marble-woodwork.jpg"
+      "/spaces/360-construction-villa-completed.jpg",
+      "/spaces/360-construction-villa-in-progress.jpg",
+      "/spaces/site-execution-marble-woodwork.jpg"
     ],
-    beforeImage: "/gallery/360-construction-villa-in-progress.jpg",
-    afterImage: "/gallery/360-construction-villa-completed.jpg",
+    beforeImage: "/spaces/360-construction-villa-in-progress.jpg",
+    afterImage: "/spaces/360-construction-villa-completed.jpg",
     subtitle: "Double-height luxury villa civil execution, curved floating staircase, and bookmatched Italian marble",
     overview: "Documenting our master craftsmanship from raw monolithic structural formwork and on-site marble cutting to mirror-finish Italian marble, curved brass balustrades, and full-height fluted walnut panelling.",
     clientBrief: "Execute a palatial private estate featuring a dramatic curved staircase, double-height entertaining hall, and bespoke private suites.",
@@ -73,14 +73,14 @@ export const projectsData = [
     year: "2024",
     area: "4,500 sq.ft",
     completionTime: "6 Months",
-    coverImage: "/gallery/fluted-timber-master-suite.jpg",
+    coverImage: "/spaces/fluted-timber-master-suite.jpg",
     gallery: [
-      "/gallery/fluted-timber-master-suite.jpg",
-      "/gallery/contemporary-living-pavilion.jpg",
-      "/gallery/curated-art-library-lounge.jpg"
+      "/spaces/fluted-timber-master-suite.jpg",
+      "/spaces/contemporary-living-pavilion.jpg",
+      "/spaces/curated-art-library-lounge.jpg"
     ],
     beforeImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
-    afterImage: "/gallery/fluted-timber-master-suite.jpg",
+    afterImage: "/spaces/fluted-timber-master-suite.jpg",
     subtitle: "A masterclass in biophilic timber acoustic walls, expansive daylight living, and bespoke library millwork",
     overview: "Crafted for connoisseurs of architectural harmony, this residence combines vertical timber acoustic fluting, full-height art curation, and tailored Italian marble millwork throughout the living and master suites.",
     clientBrief: "Design an oasis of tranquility that balances private restorative suites with open-format entertaining pavilions.",
