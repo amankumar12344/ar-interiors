@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowUpRight, Sparkles, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -365,12 +366,12 @@ export default function ServicesGallery() {
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </button>
 
-                  <a
-                    href="#consultation"
+                  <Link
+                    to="/contact"
                     className="text-[11px] uppercase tracking-wider text-taupe hover:text-charcoal transition-colors"
                   >
                     Request Estimate
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

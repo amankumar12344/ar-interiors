@@ -51,7 +51,7 @@ export default function Navbar() {
     // If user is already on homepage and clicks 'Home', smoothly scroll to top
     if (link.path === '/' && location.pathname === '/') {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
     // For all other links (/about, /services, /gallery, etc.), React Router navigates directly to the dedicated page
   };
@@ -76,8 +76,8 @@ export default function Navbar() {
                 onClick={(e) => {
                   if (location.pathname === '/') {
                     e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    setActiveSection('home');
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    
                   }
                 }}
                 className="group flex items-center gap-3 sm:gap-3.5 text-left shrink-0 whitespace-nowrap"
@@ -185,8 +185,8 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 if (location.pathname === '/') {
                   e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                  setActiveSection('home');
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  
                 }
               }}
               className="flex items-center gap-2.5"

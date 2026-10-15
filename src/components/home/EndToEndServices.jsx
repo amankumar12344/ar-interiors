@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
@@ -180,13 +181,12 @@ export default function EndToEndServices() {
               Get expert consultation for interior with AR Interiors & Architect Designer Studio
             </p>
             <div className="mt-6">
-              <a
-                href="#contact"
+              <Link to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-charcoal text-white hover:bg-gold-dark hover:text-white px-8 sm:px-10 py-3.5 rounded-full text-xs uppercase tracking-architectural font-medium shadow-subtle hover:shadow-elevated transition-all duration-300 group cursor-pointer"
               >
                 <span>Start Your Home Interior</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
         </Container>
@@ -244,13 +244,12 @@ export default function EndToEndServices() {
               Get expert consultation for construction with AR Interiors & Architect Designer Studio
             </p>
             <div className="mt-6">
-              <a
-                href="#contact"
+              <Link to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-charcoal text-white hover:bg-gold-dark hover:text-white px-8 sm:px-10 py-3.5 rounded-full text-xs uppercase tracking-architectural font-medium shadow-subtle hover:shadow-elevated transition-all duration-300 group cursor-pointer"
               >
                 <span>Start Your Home Construction</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
         </Container>
